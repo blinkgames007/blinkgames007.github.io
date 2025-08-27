@@ -281,9 +281,23 @@
     wrapper.appendChild(modal);
     wrapper.addEventListener('click', e => { if(e.target === wrapper) wrapper.remove(); });
     document.body.appendChild(wrapper);
+    
+    // Restart button
+    document.getElementById('dlgRestart').addEventListener('click', () => {
+      openWebOldLogic(() => {
+        wrapper.remove();
+        restart();
+      });
+    });
 
-    document.getElementById('dlgRestart').addEventListener('click', ()=>{ wrapper.remove(); restart(); });
-    document.getElementById('dlgHome').addEventListener('click', ()=>{ localStorage.removeItem('ticSetup'); window.location.href='setup.html'; });
+    // Home button
+    document.getElementById('dlgHome').addEventListener('click', () => {
+      openWebOldLogic(() => {
+        localStorage.removeItem('ticSetup');
+        window.location.href = 'setup.html';
+      });
+    });
+
   }
 
   // restart game
