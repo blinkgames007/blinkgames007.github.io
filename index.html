@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title></title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand">
+    <div class="company-logo"></div>
+    <h1 class="company-name"></h1>
+  </div>
+  <div class="search-bar">
+    <input type="text" id="gameSearch" placeholder="Search games..." />
+  </div>
+  <button class="search-toggle" onclick="toggleSearch()">🔍</button>
+</header>
+
+
+<!-- Hero Section -->
+<section class="hero home-bg">
+  <div class="hero-content">
+    <h2>Welcome to <span class="company-name"></span></h2>
+    <p class="hero-desc">Play, explore, and enjoy awesome games!</p>
+  </div>
+</section>
+
+<section id="games">
+  <h3 class="section-title">🔥 Play Online Games</h3>
+  <div class="games-container"></div>
+</section>
+
+<footer>
+  <p>&copy; <span id="year"></span> <span class="company-name"></span>. All rights reserved.</p>
+</footer>
+
+<script src="adsopenhelper.js"></script>
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

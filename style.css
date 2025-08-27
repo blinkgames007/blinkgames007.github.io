@@ -1,0 +1,165 @@
+:root {
+  --primary: #00ffcc;
+  --accent: #ff007f;
+  --bg-dark: #0d0d0d;
+  --bg-card: #171717;
+  --text-light: #f5f5f5;
+  --header-h: 72px;
+}
+
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  padding-top: var(--header-h);
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  background: #111;
+  border-bottom: 2px solid var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  z-index: 1000;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.logo-img {
+  height: 40px;
+  width: auto;
+}
+header h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  color: var(--primary);
+}
+
+/* Search bar (PC/Tablet default) */
+.search-bar {
+  flex: 1;
+  max-width: 400px;
+  margin-left: auto;
+}
+.search-bar input {
+  width: 100%;
+  padding: 0.5rem 0.9rem;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  background: #0f0f0f;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* Search toggle (hidden on desktop by default) */
+.search-toggle {
+  font-size: 1.4rem;
+  background: none;
+  border: none;
+  color: var(--primary);  /* ✅ bright color so visible on dark header */
+  cursor: pointer;
+  margin-left: 10px;
+  display: none; /* hidden on large screens */
+}
+
+/* Show search toggle on mobile */
+@media (max-width: 768px) {
+  header h1 { display: none; }         /* hide company name */
+  .search-bar { display: none; }       /* hide full search bar */
+  .search-toggle { display: block; }   /* ✅ force show search icon */
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--primary);
+}
+
+
+/* Hero */
+.hero {
+  padding: 4rem 1rem 2rem;
+  background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.85)),
+    url('https://wallpapercave.com/wp/wp5723002.jpg') center/cover no-repeat;
+  text-align: center;
+}
+.hero-content h2 {
+  font-family: 'Press Start 2P', cursive;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.games-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 0 20px;   /* ✅ left/right spacing */
+  margin: 0 auto;    /* ✅ centers the grid */
+  max-width: 1200px; /* ✅ keeps it neat on very large screens */
+}
+
+
+.game-card {
+  background: var(--bg-card);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-card img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.game-card h4 {
+  padding: 0.7rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* 🔥 Hide content but keep slot for search filtering */
+.game-card.hidden {
+  visibility: hidden;
+}
+
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #111;
+  border-top: 2px solid var(--primary);
+}
+
+/* 🔥 Responsive rules */
+@media (max-width: 768px) {
+  header h1 { display: none; }         /* hide name on mobile */
+  .search-bar { display: none; }       /* hide full search bar on mobile */
+  .search-toggle { display: block; }   /* show search icon */
+  .search-bar.active {
+    display: block;
+    position: absolute;
+    top: var(--header-h);
+    left: 0; right: 0;
+    background: #111;
+    padding: 0.5rem 1rem;
+  }
+}
