@@ -15,9 +15,11 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
 
 // Restart the game
 GameManager.prototype.restart = function () {
-  this.storageManager.clearGameState();
-  this.actuator.continueGame(); // Clear the game won/lost message
-  this.setup();
+  openWebOldLogic(() => {
+    this.storageManager.clearGameState();
+    this.actuator.continueGame();
+    this.setup();
+  });
 };
 
 // Keep playing after winning (allows going over 2048)
