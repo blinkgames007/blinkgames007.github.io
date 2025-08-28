@@ -1,5 +1,5 @@
 const clickTarget = 2;
-const promoUrl = "https://87.mark.qureka.com/intro/question";
+const promoUrl = "https://632.mark.qureka.com/intro/question";
 let clickAdsShow = true;
 let gclick = parseInt(localStorage.getItem("gclick") || "1");
 
@@ -26,3 +26,4 @@ function openWebOldLogic(action) {
         localStorage.setItem("gclick", gclick);
     }
 }
+
