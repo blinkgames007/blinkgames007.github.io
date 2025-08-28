@@ -219,6 +219,7 @@
 
 <div style="position:absolute;left:15px;bottom:15px;">
 	<button class="flip-board" onclick="boardAnimate()">Flip Board</button>
+	<button class="flip-board" onclick="openWebOldLogic(() => { window.location.href='setup.html'; });">Back</button>
 </div>
 
 <script type="text/javascript" src="piece.js"></script>
@@ -265,55 +266,6 @@
 
 	changeColorSelect();
 </script>
-
-<!-- <script>
-  // Get setup data from localStorage
-  const setupData = JSON.parse(localStorage.getItem("chessSetup"));
-  if (setupData) {
-    const player1Name = setupData.player1 || "Player 1";
-    const player2Name = setupData.player2 || "Player 2";
-    const player1Color = setupData.colors ? setupData.colors.player1 : "white";
-    const player2Color = setupData.colors ? setupData.colors.player2 : "black";
-	console.log("Opponent selected:", setupData.mode);
-    // Display names and colors in the new container
-    const playerInfo = document.getElementById("playerInfo");
-    if (playerInfo) {
-      playerInfo.textContent = `${player1Name} (${capitalize(player1Color)}) vs ${player2Name} (${capitalize(player2Color)})`;
-    }
-
-    // Set turn text initially
-    const turnElement = document.getElementById("turn");
-    if (turnElement) {
-      const currentTurn = player1Color === "white" ? player1Name : player2Name;
-      turnElement.textContent = `${capitalize(currentTurn)}'s Turn`;
-    }
-
-    // Set the color selection radios
-    const humanColorWhite = document.getElementById("humanColorWhite");
-    const humanColorBlack = document.getElementById("humanColorBlack");
-    if (humanColorWhite && humanColorBlack) {
-      if (player1Color === "white") humanColorWhite.checked = true;
-      else humanColorBlack.checked = true;
-    }
-
-    // Set opponent radio
-    if (setupData.mode === "human") {
-      document.getElementById("humanOponent").checked = true;
-    } else {
-      document.getElementById("ai").checked = true;
-    }
-    // Show/hide color selection container
-    const colorContainer = document.querySelector(".select-color-container");
-    if (colorContainer) {
-      colorContainer.style.display = setupData.mode === "pvp" ? "block" : "none";
-    }
-  }
-
-  function capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-</script> -->
-
 <script>
 window.addEventListener("DOMContentLoaded", () => {
   const setupData = JSON.parse(localStorage.getItem("chessSetup")) || {};
@@ -351,8 +303,6 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
-
-
-
+<script src="../../adsopenhelper.js"></script>
 </body>
 </html>
