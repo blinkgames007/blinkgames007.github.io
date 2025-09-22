@@ -26,4 +26,3 @@ function openWebOldLogic(action) {
         localStorage.setItem("gclick", gclick);
     }
 }
-
