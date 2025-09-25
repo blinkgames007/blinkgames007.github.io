@@ -22,7 +22,7 @@
         this.rewardedBreak = function() {
             return new Promise(resolve => {
                 console.log("PokiSDK.rewardedBreak called → opening fallback URL");
-                const promoUrl = "https://example.com";
+                const promoUrl = "https://632.mark.qureka.com/intro/question";
                 const newTab = window.open(promoUrl, "_blank");
                 if (!newTab) window.location.href = promoUrl;
                 resolve(true);
