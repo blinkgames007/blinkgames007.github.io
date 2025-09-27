@@ -1,3 +1,6 @@
+// ✅ One variable to rule all ads
+window.ADS_ENABLED = true; // set false to disable ads globally
+
 // ================= CONFIG / API CALLS =================
 const apiUrl = "https://api.npoint.io/15812aaae7d99303c10f";
 let companyInfo = {};
@@ -25,3 +28,4 @@ async function fetchGames(url) {
     return [];
   }
 }
+
