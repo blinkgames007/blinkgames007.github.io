@@ -110,7 +110,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Responsive Game</title>
 <style>
-  body {
+  /*body {
     margin: 0;
     font-family: Arial, sans-serif;
     display: flex;
@@ -118,7 +118,17 @@
     align-items: center;
     min-height: 100vh;
     background: radial-gradient(circle at top, #43206f, #1c0936);
-  }
+  }*/
+  body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  align-items: center;
+  background: radial-gradient(circle at top, #43206f, #1c0936);
+}
+
 
   /* ---------------- Desktop Game Container ---------------- */
   .game-container {
@@ -261,7 +271,7 @@
 <body>
 
 <!-- =================== ADS =================== -->
- <div id="banner1"></div>
+ <div id="banner1" style="width:100%; min-height:90px;"></div>
 
 <!-- Desktop Layout -->
 <div class="game-container" id="desktopGame">
@@ -282,7 +292,7 @@
   </div>
 </div>
 <!-- ================= ADS ================= -->
-<div id="banner2"></div>
+<div id="banner2" style="width:100%; min-height:90px;"></div>
 <script>
   const fullscreenBtn = document.getElementById('fullscreenBtn');
   const desktopContainer = document.getElementById('desktopGame');
