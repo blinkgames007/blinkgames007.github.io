@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -102,7 +102,6 @@
 
 </body>
 </html>
- -->
 
 <!-- <!DOCTYPE html>
 <html lang="en">
@@ -264,131 +263,4 @@
 
 </body>
 </html> -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Game Frame</title>
-  <style>
-    body {
-      margin: 0;
-      background: radial-gradient(circle at top, #43206f, #1c0936);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      font-family: Arial, sans-serif;
-    }
-
-    .game-container {
-      position: relative;
-      width: 80%;
-      max-width: 900px;
-      aspect-ratio: 16 / 9;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-      background-color: #000;
-      transition: all 0.5s ease;
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
-
-    /* Mobile play overlay */
-    .play-overlay {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(to bottom right, #36145a, #1b0932);
-      color: white;
-      text-align: center;
-      height: 100vh;
-      width: 100%;
-    }
-
-    .play-overlay button {
-      background: #ffcc00;
-      color: #000;
-      font-weight: bold;
-      border: none;
-      border-radius: 12px;
-      padding: 14px 28px;
-      font-size: 18px;
-      cursor: pointer;
-      margin-top: 15px;
-      transition: transform 0.2s ease, background 0.3s ease;
-    }
-
-    .play-overlay button:hover {
-      background: #ffe266;
-      transform: scale(1.05);
-    }
-
-    /* Mobile styles */
-    @media (max-width: 768px) {
-      body {
-        background: #000;
-      }
-
-      .game-container {
-        display: none; /* hidden until play button clicked */
-        width: 100%;
-        height: 100vh;
-        border-radius: 0;
-        box-shadow: none;
-        max-width: none;
-      }
-
-      .play-overlay {
-        display: flex;
-      }
-
-      .play-overlay.hidden {
-        display: none;
-      }
-
-      .game-container.active {
-        display: block;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <div class="play-overlay" id="playOverlay">
-    <h2>Ready to Play?</h2>
-    <button id="playBtn">Play Game ▶</button>
-  </div>
-
-  <div class="game-container" id="gameContainer">
-    <iframe 
-      id="gameFrame"
-      src="https://blinkgames007.github.io/G/hill-climb-racing/"
-      allowfullscreen>
-    </iframe>
-  </div>
-
-  <script>
-    const playBtn = document.getElementById('playBtn');
-    const playOverlay = document.getElementById('playOverlay');
-    const gameContainer = document.getElementById('gameContainer');
-
-    playBtn.addEventListener('click', () => {
-      playOverlay.classList.add('hidden');
-      gameContainer.classList.add('active');
-      // Scroll to top to prevent background showing
-      window.scrollTo(0, 0);
-    });
-  </script>
-
-</body>
-</html>
 
