@@ -110,7 +110,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Responsive Game</title>
 <style>
-  /*body {
+  body {
     margin: 0;
     font-family: Arial, sans-serif;
     display: flex;
@@ -118,17 +118,7 @@
     align-items: center;
     min-height: 100vh;
     background: radial-gradient(circle at top, #43206f, #1c0936);
-  }*/
-  body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column; /* stack vertically */
-  align-items: center;
-  background: radial-gradient(circle at top, #43206f, #1c0936);
-}
-
+  }
 
   /* ---------------- Desktop Game Container ---------------- */
   .game-container {
@@ -270,9 +260,6 @@
 </head>
 <body>
 
-<!-- =================== ADS =================== -->
- <div id="banner1" style="width:100%; min-height:90px;"></div>
-
 <!-- Desktop Layout -->
 <div class="game-container" id="desktopGame">
   <iframe 
@@ -291,8 +278,7 @@
     <div class="play-text">Play now</div>
   </div>
 </div>
-<!-- ================= ADS ================= -->
-<div id="banner2" style="width:100%; min-height:90px;"></div>
+
 <script>
   const fullscreenBtn = document.getElementById('fullscreenBtn');
   const desktopContainer = document.getElementById('desktopGame');
@@ -323,14 +309,7 @@
     desktopContainer.style.boxShadow = 'none';
   });
 </script>
-<script src="config.js"></script>
-<script src="GoogleAdsManager.js"></script>
-  <script>
-     const ads = new GoogleAdsManager("ca-pub-9301267932926503");
-     ads.loadAutoAds();
-    ads.loadAdUnit("banner1", "3089669868", "auto");
-  ads.loadAdUnit("banner2", "3089669868", "auto");
-  </script>
+
 </body>
 </html>
 
