@@ -113,13 +113,12 @@
   body {
     margin: 0;
     font-family: Arial, sans-serif;
-    min-height: 100vh;
     display: flex;
-    flex-direction: column; /* stack elements vertically */
+    justify-content: center;
     align-items: center;
+    min-height: 100vh;
     background: radial-gradient(circle at top, #43206f, #1c0936);
   }
-
 
   /* ---------------- Desktop Game Container ---------------- */
   .game-container {
@@ -258,12 +257,8 @@
     }
   }
 </style>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-   <div id="header-placeholder"></div>
 
 <!-- Desktop Layout -->
 <div class="game-container" id="desktopGame">
@@ -283,7 +278,7 @@
     <div class="play-text">Play now</div>
   </div>
 </div>
-<div id="footer-placeholder"></div>
+
 <script>
   const fullscreenBtn = document.getElementById('fullscreenBtn');
   const desktopContainer = document.getElementById('desktopGame');
@@ -314,19 +309,7 @@
     desktopContainer.style.boxShadow = 'none';
   });
 </script>
-  <script>
-    // Load header
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => document.getElementById('header-placeholder').innerHTML = data);
 
-    // Load footer
-    fetch('footer.html')
-      .then(response => response.text())
-      .then(data => document.getElementById('footer-placeholder').innerHTML = data);
-  </script>
-  <script src="config.js"></script>
-  <script src="script.js"></script>
 </body>
 </html>
 
