@@ -260,6 +260,8 @@
 </head>
 <body>
 
+   <div id="header-placeholder"></div>
+
 <!-- Desktop Layout -->
 <div class="game-container" id="desktopGame">
   <iframe 
@@ -278,7 +280,7 @@
     <div class="play-text">Play now</div>
   </div>
 </div>
-
+<div id="footer-placeholder"></div>
 <script>
   const fullscreenBtn = document.getElementById('fullscreenBtn');
   const desktopContainer = document.getElementById('desktopGame');
@@ -309,7 +311,17 @@
     desktopContainer.style.boxShadow = 'none';
   });
 </script>
+<script>
+    // Load header
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('header-placeholder').innerHTML = data);
 
+    // Load footer
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+  </script>
 </body>
 </html>
 
