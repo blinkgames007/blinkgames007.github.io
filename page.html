@@ -1,0 +1,394 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Frame</title>
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, #43206f, #1c0936);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .game-container {
+      position: relative;
+      width: 80%;
+      max-width: 900px;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      background-color: #000;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* Fullscreen button (desktop only) */
+    .fullscreen-btn {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(6px);
+      border: none;
+      color: white;
+      font-size: 20px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .fullscreen-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.1);
+    }
+
+    /* On small screens: make iframe fullscreen and hide button */
+    @media (max-width: 768px) {
+      body {
+        background: #000;
+      }
+
+      .game-container {
+        width: 100%;
+        height: 100vh;
+        max-width: none;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .fullscreen-btn {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="game-container" id="gameContainer">
+    <iframe 
+      id="gameFrame" 
+      src="https://blinkgames007.github.io/G/hill-climb-racing/" 
+      allowfullscreen>
+    </iframe>
+    <button class="fullscreen-btn" id="fullscreenBtn" title="Fullscreen">⛶</button>
+  </div>
+
+  <script>
+    const btn = document.getElementById('fullscreenBtn');
+    const container = document.getElementById('gameContainer');
+
+    btn.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        container.requestFullscreen().catch(err => {
+          alert(`Error attempting to enable fullscreen: ${err.message}`);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    });
+  </script>
+
+</body>
+</html>
+ -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Frame</title>
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, #43206f, #1c0936);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    .game-container {
+      position: relative;
+      width: 80%;
+      max-width: 900px;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      background-color: #000;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* Fullscreen button (desktop only) */
+    .fullscreen-btn {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(6px);
+      border: none;
+      color: white;
+      font-size: 20px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .fullscreen-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.1);
+    }
+
+    /* Mobile view */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        background: radial-gradient(circle at top, #43206f, #1c0936);
+      }
+
+      .game-container {
+        display: none; /* hide iframe initially */
+      }
+
+      .mobile-play {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .mobile-play button {
+        background: #ffffff;
+        color: #3a2561;
+        font-size: 18px;
+        font-weight: bold;
+        border: none;
+        padding: 14px 28px;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        transition: transform 0.2s, background 0.3s;
+      }
+
+      .mobile-play button:hover {
+        background: #e8e8e8;
+        transform: scale(1.05);
+      }
+
+      .fullscreen-btn {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container" id="gameContainer">
+    <iframe 
+      id="gameFrame" 
+      src="https://blinkgames007.github.io/G/hill-climb-racing/" 
+      allowfullscreen>
+    </iframe>
+    <button class="fullscreen-btn" id="fullscreenBtn" title="Fullscreen">⛶</button>
+  </div>
+
+  <div class="mobile-play" id="mobilePlay">
+    <img src="https://blinkgames007.github.io/G/hill-climb-racing/icon.png" alt="Game Icon" width="120" height="120" style="border-radius:20px;">
+    <h2>Hill Climb Racing</h2>
+    <button id="playGameBtn">Play</button>
+  </div>
+
+  <script>
+    const btn = document.getElementById('fullscreenBtn');
+    const container = document.getElementById('gameContainer');
+    const mobilePlay = document.getElementById('mobilePlay');
+    const playBtn = document.getElementById('playGameBtn');
+    const iframe = document.getElementById('gameFrame');
+
+    // Fullscreen button (desktop)
+    btn.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        container.requestFullscreen().catch(err => {
+          alert(`Error attempting to enable fullscreen: ${err.message}`);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    });
+
+    // On mobile, "Play" button loads the game fullscreen
+    playBtn.addEventListener('click', () => {
+      mobilePlay.style.display = "none";
+      container.style.display = "block";
+      container.requestFullscreen().catch(() => {});
+    });
+
+    // Detect screen width to show proper layout on load
+    function adjustView() {
+      if (window.innerWidth <= 768) {
+        mobilePlay.style.display = "flex";
+        container.style.display = "none";
+      } else {
+        mobilePlay.style.display = "none";
+        container.style.display = "block";
+      }
+    }
+
+    window.addEventListener('resize', adjustView);
+    adjustView();
+  </script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Frame</title>
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, #43206f, #1c0936);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .game-container {
+      position: relative;
+      width: 80%;
+      max-width: 900px;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      background-color: #000;
+      transition: all 0.5s ease;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* Mobile play overlay */
+    .play-overlay {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom right, #36145a, #1b0932);
+      color: white;
+      text-align: center;
+      height: 100vh;
+      width: 100%;
+    }
+
+    .play-overlay button {
+      background: #ffcc00;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      padding: 14px 28px;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
+
+    .play-overlay button:hover {
+      background: #ffe266;
+      transform: scale(1.05);
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      body {
+        background: #000;
+      }
+
+      .game-container {
+        display: none; /* hidden until play button clicked */
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+        box-shadow: none;
+        max-width: none;
+      }
+
+      .play-overlay {
+        display: flex;
+      }
+
+      .play-overlay.hidden {
+        display: none;
+      }
+
+      .game-container.active {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="play-overlay" id="playOverlay">
+    <h2>Ready to Play?</h2>
+    <button id="playBtn">Play Game ▶</button>
+  </div>
+
+  <div class="game-container" id="gameContainer">
+    <iframe 
+      id="gameFrame"
+      src="https://blinkgames007.github.io/G/hill-climb-racing/"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <script>
+    const playBtn = document.getElementById('playBtn');
+    const playOverlay = document.getElementById('playOverlay');
+    const gameContainer = document.getElementById('gameContainer');
+
+    playBtn.addEventListener('click', () => {
+      playOverlay.classList.add('hidden');
+      gameContainer.classList.add('active');
+      // Scroll to top to prevent background showing
+      window.scrollTo(0, 0);
+    });
+  </script>
+
+</body>
+</html>
+
