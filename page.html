@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -101,166 +101,215 @@
   </script>
 
 </body>
-</html>
+</html> -->
 
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Game Frame</title>
-  <style>
-    body {
-      margin: 0;
-      background: radial-gradient(circle at top, #43206f, #1c0936);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      font-family: Arial, sans-serif;
-      color: white;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Game</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #43206f, #1c0936);
+  }
 
+  /* ---------------- Desktop Game Container ---------------- */
+  .game-container {
+    position: relative;
+    width: 80%;
+    max-width: 900px;
+    aspect-ratio: 16/9;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    background-color: #000;
+  }
+
+  .game-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  .fullscreen-btn {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(6px);
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .fullscreen-btn:hover {
+    background: rgba(255,255,255,0.25);
+    transform: scale(1.1);
+  }
+
+  /* ---------------- Mobile Poki-style Card ---------------- */
+  .poki-card {
+    display: none;
+    position: relative;
+    width: 300px;
+    aspect-ratio: 1/1;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    background-color: #000;
+  }
+
+  .poki-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.35);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .play-overlay:hover {
+    background: rgba(0,0,0,0.5);
+  }
+
+  .play-btn {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: transform 0.2s ease;
+  }
+
+  .play-btn:hover {
+    transform: scale(1.2);
+  }
+
+  .play-btn::before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 18px solid #1c1c1c;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+  }
+
+  .play-text {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: none;
+  }
+
+  /* ---------------- Responsive Behavior ---------------- */
+  @media (max-width: 768px) {
+    /* Hide desktop container on small screens */
     .game-container {
-      position: relative;
-      width: 80%;
-      max-width: 900px;
-      aspect-ratio: 16 / 9;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-      background-color: #000;
+      display: none;
+    }
+    .fullscreen-btn {
+      display: none;
     }
 
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
+    /* Show Poki-style card on small screens */
+    .poki-card {
       display: block;
     }
 
-    /* Fullscreen button (desktop only) */
-    .fullscreen-btn {
-      position: absolute;
-      bottom: 12px;
-      right: 12px;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(6px);
-      border: none;
-      color: white;
-      font-size: 20px;
-      padding: 10px 14px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: all 0.3s ease;
+    /* Keep same radial-gradient background as desktop */
+    body {
+      background: radial-gradient(circle at top, #43206f, #1c0936);
     }
-
-    .fullscreen-btn:hover {
-      background: rgba(255, 255, 255, 0.25);
-      transform: scale(1.1);
-    }
-
-    /* Mobile view */
-    @media (max-width: 768px) {
-      body {
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        background: radial-gradient(circle at top, #43206f, #1c0936);
-      }
-
-      .game-container {
-        display: none; /* hide iframe initially */
-      }
-
-      .mobile-play {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 15px;
-      }
-
-      .mobile-play button {
-        background: #ffffff;
-        color: #3a2561;
-        font-size: 18px;
-        font-weight: bold;
-        border: none;
-        padding: 14px 28px;
-        border-radius: 50px;
-        cursor: pointer;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        transition: transform 0.2s, background 0.3s;
-      }
-
-      .mobile-play button:hover {
-        background: #e8e8e8;
-        transform: scale(1.05);
-      }
-
-      .fullscreen-btn {
-        display: none;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <div class="game-container" id="gameContainer">
-    <iframe 
-      id="gameFrame" 
-      src="https://blinkgames007.github.io/G/hill-climb-racing/" 
-      allowfullscreen>
-    </iframe>
-    <button class="fullscreen-btn" id="fullscreenBtn" title="Fullscreen">⛶</button>
+
+<!-- Desktop Layout -->
+<div class="game-container" id="desktopGame">
+  <iframe 
+    id="desktopIframe" 
+    src="https://blinkgames007.github.io/G/hill-climb-racing/" 
+    allowfullscreen>
+  </iframe>
+  <button class="fullscreen-btn" id="fullscreenBtn" title="Fullscreen">⛶</button>
+</div>
+
+<!-- Mobile Poki-style Layout -->
+<div class="poki-card" id="mobileCard">
+  <img src="https://blinkgames007.github.io/assets/img_hillclimbracing.jpg" alt="Game Thumbnail">
+  <div class="play-overlay" id="playOverlay">
+    <div class="play-btn"></div>
+    <div class="play-text">Play now</div>
   </div>
+</div>
 
-  <div class="mobile-play" id="mobilePlay">
-    <img src="https://blinkgames007.github.io/G/hill-climb-racing/icon.png" alt="Game Icon" width="120" height="120" style="border-radius:20px;">
-    <h2>Hill Climb Racing</h2>
-    <button id="playGameBtn">Play</button>
-  </div>
+<script>
+  const fullscreenBtn = document.getElementById('fullscreenBtn');
+  const desktopContainer = document.getElementById('desktopGame');
+  const mobileCard = document.getElementById('mobileCard');
+  const playOverlay = document.getElementById('playOverlay');
 
-  <script>
-    const btn = document.getElementById('fullscreenBtn');
-    const container = document.getElementById('gameContainer');
-    const mobilePlay = document.getElementById('mobilePlay');
-    const playBtn = document.getElementById('playGameBtn');
-    const iframe = document.getElementById('gameFrame');
-
-    // Fullscreen button (desktop)
-    btn.addEventListener('click', () => {
-      if (!document.fullscreenElement) {
-        container.requestFullscreen().catch(err => {
-          alert(`Error attempting to enable fullscreen: ${err.message}`);
-        });
-      } else {
-        document.exitFullscreen();
-      }
-    });
-
-    // On mobile, "Play" button loads the game fullscreen
-    playBtn.addEventListener('click', () => {
-      mobilePlay.style.display = "none";
-      container.style.display = "block";
-      container.requestFullscreen().catch(() => {});
-    });
-
-    // Detect screen width to show proper layout on load
-    function adjustView() {
-      if (window.innerWidth <= 768) {
-        mobilePlay.style.display = "flex";
-        container.style.display = "none";
-      } else {
-        mobilePlay.style.display = "none";
-        container.style.display = "block";
-      }
+  // Fullscreen button (desktop)
+  fullscreenBtn?.addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+      desktopContainer.requestFullscreen().catch(err => {
+        alert(`Error attempting to enable fullscreen: ${err.message}`);
+      });
+    } else {
+      document.exitFullscreen();
     }
+  });
 
-    window.addEventListener('resize', adjustView);
-    adjustView();
-  </script>
+  // Mobile Poki-style overlay
+  playOverlay?.addEventListener('click', () => {
+    // Remove Poki card
+    mobileCard.style.display = 'none';
+
+    // Show original game container fullscreen
+    desktopContainer.style.display = 'block';
+    desktopContainer.style.width = '100%';
+    desktopContainer.style.height = '100vh';
+    desktopContainer.style.borderRadius = '0';
+    desktopContainer.style.boxShadow = 'none';
+  });
+</script>
 
 </body>
-</html> -->
+</html>
 
