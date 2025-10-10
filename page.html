@@ -260,6 +260,9 @@
 </head>
 <body>
 
+<!-- =================== ADS =================== -->
+ <div id="banner1"></div>
+
 <!-- Desktop Layout -->
 <div class="game-container" id="desktopGame">
   <iframe 
@@ -278,7 +281,8 @@
     <div class="play-text">Play now</div>
   </div>
 </div>
-
+<!-- ================= ADS ================= -->
+<div id="banner2"></div>
 <script>
   const fullscreenBtn = document.getElementById('fullscreenBtn');
   const desktopContainer = document.getElementById('desktopGame');
@@ -309,7 +313,13 @@
     desktopContainer.style.boxShadow = 'none';
   });
 </script>
-
+<script src="GoogleAdsManager.js"></script>
+  <script>
+     const ads = new GoogleAdsManager("ca-pub-9301267932926503");
+     ads.loadAutoAds();
+    ads.loadAdUnit("banner1", "3089669868", "auto");
+  ads.loadAdUnit("banner2", "3089669868", "auto");
+  </script>
 </body>
 </html>
 
