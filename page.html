@@ -260,6 +260,9 @@
 </head>
 <body>
 
+<!-- ================= ADS ================= -->
+<div id="banner1"></div>
+
 <!-- Desktop Layout -->
 <div class="game-container" id="desktopGame">
   <iframe 
@@ -309,7 +312,13 @@
     desktopContainer.style.boxShadow = 'none';
   });
 </script>
-
+  <script src="config.js"></script>
+  <script src="GoogleAdsManager.js"></script>
+  <script>
+      const ads = new GoogleAdsManager("ca-pub-9301267932926503");
+      ads.loadAutoAds();
+      ads.loadAdUnit("banner1", "3089669868", "auto");
+  </script>
 </body>
 </html>
 
