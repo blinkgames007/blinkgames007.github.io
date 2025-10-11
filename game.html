@@ -161,10 +161,8 @@
 </head>
 <body>
 
-<!-- Header placeholder -->
 <div id="header-placeholder"></div>
 
-<!-- Main Content -->
 <main>
   <div class="game-card">
     <img src="https://blinkgames007.github.io/assets/img_hillclimbracing.jpg" alt="Hill Climb Racing">
@@ -175,11 +173,12 @@
   </div>
 </main>
 
-<!-- Footer placeholder -->
 <div id="footer-placeholder"></div>
 
-<!-- Scripts -->
+<!-- Load config.js first -->
 <script src="config.js"></script>
+
+<!-- Load header/footer and only then init the main script -->
 <script>
   async function loadHeaderFooterAndInit() {
     try {
@@ -191,10 +190,14 @@
       const footerHTML = await fetch('footer.html').then(r => r.text());
       document.getElementById('footer-placeholder').innerHTML = footerHTML;
 
-      // Only now run script.js after header/footer exist
+      // Wait a tiny moment to ensure DOM updates
+      await new Promise(res => setTimeout(res, 50));
+
+      // Now load script.js dynamically
       const script = document.createElement('script');
       script.src = 'script.js';
       document.body.appendChild(script);
+
     } catch (err) {
       console.error("Error loading header/footer:", err);
     }
