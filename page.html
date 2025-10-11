@@ -195,7 +195,7 @@
 </html>
  -->
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -389,10 +389,8 @@
 
 <h1>Play Free Online Game</h1>
 
-<!-- Top Ad -->
 <div class="ad-container" id="banner1"></div>
 
-<!-- Desktop Game -->
 <div class="game-container" id="desktopGame">
   <iframe 
     id="desktopIframe" 
@@ -402,7 +400,6 @@
   <button class="fullscreen-btn" id="fullscreenBtn" title="Fullscreen">⛶</button>
 </div>
 
-<!-- Mobile Poki-style Card -->
 <div class="poki-card" id="mobileCard">
   <img src="https://blinkgames007.github.io/assets/img_hillclimbracing.jpg" alt="Game Thumbnail">
   <div class="play-overlay" id="playOverlay">
@@ -411,16 +408,13 @@
   </div>
 </div>
 
-<!-- Mobile popup overlay -->
 <div class="mobile-popup" id="mobilePopup">
   <button class="close-popup" id="closePopup">✕</button>
   <iframe src="https://blinkgames007.github.io/G/hill-climb-racing/" allowfullscreen></iframe>
 </div>
 
-<!-- Bottom Ad -->
 <div class="ad-container" id="banner2"></div>
 
-<!-- Scripts -->
 <script src="config.js"></script>
 <script src="GoogleAdsManager.js"></script>
 <script>
@@ -465,6 +459,274 @@
   if (window.innerWidth > 768) {
     setTimeout(loadAds, 500);
   }
+</script>
+
+</body>
+</html>
+ -->
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Game with Ads | Blink Infotech</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg, #43206f, #1c0936);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    min-height: 100vh;
+  }
+
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  /* Ads styling */
+  .ad-container {
+    display: block;
+    width: 100%;
+    max-width: 728px;
+    min-width: 300px;
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  /* Game container */
+  .game-container {
+    position: relative;
+    width: 80%;
+    max-width: 900px;
+    aspect-ratio: 16/9;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    background-color: #000;
+    margin: 20px 0;
+  }
+
+  .game-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  .fullscreen-btn {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(6px);
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .fullscreen-btn:hover {
+    background: rgba(255,255,255,0.25);
+    transform: scale(1.1);
+  }
+
+  /* Mobile Poki-style card */
+  .poki-card {
+    display: none;
+    position: relative;
+    width: 90%;
+    max-width: 320px;
+    aspect-ratio: 1/1;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    background-color: #000;
+    margin: 20px 0;
+    cursor: pointer;
+  }
+
+  .poki-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .play-btn {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: transform 0.2s ease;
+  }
+
+  .play-btn:hover {
+    transform: scale(1.2);
+  }
+
+  .play-btn::before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 18px solid #1c1c1c;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+  }
+
+  .play-text {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  /* Mobile popup overlay */
+  .mobile-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobile-popup iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .close-popup {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    z-index: 10000;
+  }
+
+  @media (max-width: 768px) {
+    .game-container {
+      display: none;
+    }
+    .fullscreen-btn {
+      display: none;
+    }
+    .poki-card {
+      display: block;
+    }
+    .ad-container {
+      max-width: 320px; /* smaller banner for mobile */
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>Play Free Online Game</h1>
+
+<!-- Top Ad -->
+<div class="ad-container" id="banner1"></div>
+
+<!-- Desktop Game -->
+<div class="game-container" id="desktopGame">
+  <iframe 
+    id="desktopIframe" 
+    src="https://blinkgames007.github.io/G/hill-climb-racing/" 
+    allowfullscreen>
+  </iframe>
+  <button class="fullscreen-btn" id="fullscreenBtn" title="Fullscreen">⛶</button>
+</div>
+
+<!-- Mobile Poki-style Card -->
+<div class="poki-card" id="mobileCard">
+  <img src="https://blinkgames007.github.io/assets/img_hillclimbracing.jpg" alt="Game Thumbnail">
+  <div class="play-overlay" id="playOverlay">
+    <div class="play-btn"></div>
+    <div class="play-text">Play Now</div>
+  </div>
+</div>
+
+<!-- Mobile popup overlay -->
+<div class="mobile-popup" id="mobilePopup">
+  <button class="close-popup" id="closePopup">✕</button>
+  <iframe src="https://blinkgames007.github.io/G/hill-climb-racing/" allowfullscreen></iframe>
+</div>
+
+<!-- Bottom Ad -->
+<div class="ad-container" id="banner2"></div>
+
+<script src="config.js"></script>
+<script src="GoogleAdsManager.js"></script>
+<script>
+  const desktopContainer = document.getElementById('desktopGame');
+  const fullscreenBtn = document.getElementById('fullscreenBtn');
+  const mobileCard = document.getElementById('mobileCard');
+  const playOverlay = document.getElementById('playOverlay');
+  const mobilePopup = document.getElementById('mobilePopup');
+  const closePopup = document.getElementById('closePopup');
+
+  // Desktop fullscreen button
+  fullscreenBtn?.addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+      desktopContainer.requestFullscreen().catch(err => { alert(err.message); });
+    } else { document.exitFullscreen(); }
+  });
+
+  // Mobile Poki button
+  playOverlay?.addEventListener('click', () => {
+    mobileCard.style.display = 'none';
+    mobilePopup.style.display = 'flex';
+  });
+
+  // Close mobile popup
+  closePopup?.addEventListener('click', () => {
+    mobilePopup.style.display = 'none';
+    mobileCard.style.display = 'block';
+  });
+
+  // Load ads
+  function loadAds() {
+    const ads = new GoogleAdsManager("ca-pub-9301267932926503");
+    ads.loadAutoAds();
+    ads.loadAdUnit("banner1", "3089669868", "auto");
+    ads.loadAdUnit("banner2", "3089669868", "auto");
+  }
+
+  setTimeout(loadAds, 500); // load after page render
 </script>
 
 </body>
