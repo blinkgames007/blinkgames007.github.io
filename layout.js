@@ -14,15 +14,23 @@ async function loadLayout() {
     if (headerContainer) headerContainer.innerHTML = headerHTML;
     if (footerContainer) footerContainer.innerHTML = footerHTML;
 
-    // Now load config and script.js after DOM insertion
+    // Load config.js
     const configScript = document.createElement('script');
     configScript.src = 'config.js';
     document.body.appendChild(configScript);
 
+    // When config is ready, load main script
     configScript.onload = () => {
       const mainScript = document.createElement('script');
       mainScript.src = 'script.js';
       document.body.appendChild(mainScript);
+
+      // ✅ Initialize dynamic content after scripts and DOM are ready
+      mainScript.onload = () => {
+        if (typeof initDynamicContent === "function") {
+          initDynamicContent();
+        }
+      };
     };
   } catch (err) {
     console.error("Failed to load layout:", err);
