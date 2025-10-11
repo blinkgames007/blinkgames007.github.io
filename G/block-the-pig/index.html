@@ -14,88 +14,135 @@
   <link rel="stylesheet" href="https://blinkgames007.github.io/style.css" />
 
   <style>
-    /* Center main content */
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      flex-direction: column;
-      background: radial-gradient(circle at top, #43206f, #1c0936);
-      font-family: 'Poppins', sans-serif;
-    }
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: radial-gradient(circle at top, #43206f, #1c0936);
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+  }
 
-    /* Game card styling */
-    .game-card {
-      background-color: #1b0b3b;
-      border-radius: 20px;
-      overflow: hidden;
-      max-width: 450px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      margin: 40px 0;
-    }
+  /* Main content wrapper to push footer down */
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
 
-    .game-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.7);
-    }
+  .game-card {
+    background-color: #1b0b3b;
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 40px 0;
+  }
 
-    .game-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+  .game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+  }
 
-    .game-content {
-      padding: 20px;
-      color: #fff;
-    }
+  .game-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 
-    .game-title {
-      font-size: 24px;
-      font-family: 'Press Start 2P', cursive;
-      margin-bottom: 15px;
-      color: #fff;
-    }
+  .game-content {
+    padding: 20px;
+  }
 
-    .play-btn {
-      display: inline-block;
-      padding: 14px 28px;
-      font-size: 16px;
-      font-weight: 600;
-      color: #fff;
-      background: linear-gradient(45deg, #ff416c, #ff4b2b);
-      border-radius: 12px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
+  .game-title {
+    font-size: 24px;
+    font-family: 'Press Start 2P', cursive;
+    margin-bottom: 15px;
+  }
 
-    .play-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(255,75,43,0.6);
-    }
+  .play-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
 
-    /* Ad banner styling */
-    #banner1, #banner2 {
-      width: 100%;
-      max-width: 468px; /* optional max width for desktop */
-      min-height: 90px; /* standard banner size */
-      margin: 20px 0;
-      display: block;
-      text-align: center;
-    }
+  .play-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255,75,43,0.6);
+  }
 
-    @media (max-width: 768px) {
-      .game-card { max-width: 70%; }
-      .game-title { font-size: 20px; }
-      .play-btn { width: 80%; padding: 12px 0; font-size: 16px; }
-    }
-  </style>
+  /* Ad banner styling */
+  #banner1, #banner2 {
+    width: 100%;
+    max-width: 468px;
+    min-height: 90px;
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  /* Footer styles */
+  .site-footer {
+    background-color: #1b0b3b;
+    padding: 30px 20px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .footer-left, .footer-right {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+  }
+
+  .footer-column h4 {
+    margin-bottom: 8px;
+  }
+
+  .footer-column a {
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 4px;
+  }
+
+  .footer-column a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-bottom {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 768px) {
+    .game-card { max-width: 90%; }
+    .game-title { font-size: 20px; }
+    .play-btn { width: 80%; padding: 12px 0; font-size: 16px; }
+    .footer-container { flex-direction: column; align-items: center; }
+    .footer-left, .footer-right { align-items: center; }
+  }
+</style>
 </head>
 <body>
 
