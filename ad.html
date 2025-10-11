@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ads Only</title>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PS5SKEXHVW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PS5SKEXHVW');
+  </script>
+</head>
+<body>
+
+  <!-- Ads -->
+  <div id="banner1"></div>
+  <div id="banner2"></div>
+
+  <!-- Ads Scripts -->
+  <script src="config.js"></script>
+  <script src="GoogleAdsManager.js"></script>
+  <script>
+    const ads = new GoogleAdsManager("ca-pub-9301267932926503");
+    ads.loadAutoAds();
+    ads.loadAdUnit("banner1", "3089669868", "auto");
+    ads.loadAdUnit("banner2", "3089669868", "auto");
+  </script>
+
+</body>
+</html>
