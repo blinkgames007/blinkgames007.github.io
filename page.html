@@ -195,7 +195,7 @@
 </html>
  -->
 
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -334,10 +334,44 @@
     font-size: 18px;
   }
 
+  /* Mobile popup overlay */
+  .mobile-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobile-popup iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .close-popup {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    z-index: 10000;
+  }
+
   /* Mobile adjustments */
   @media (max-width: 768px) {
     .game-container {
-      display: none; /* hide game container initially */
+      display: none;
     }
     .fullscreen-btn {
       display: none;
@@ -347,21 +381,6 @@
     }
     .ad-container {
       display: none; /* hide ads on mobile */
-    }
-
-    /* Activate iframe when user clicks button */
-    .game-container.active-mobile {
-      display: block;
-      width: 100% !important;
-      height: 100vh !important;
-      aspect-ratio: auto !important;
-      border-radius: 0;
-      box-shadow: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 9999;
-      background-color: #000;
     }
   }
 </style>
@@ -392,6 +411,12 @@
   </div>
 </div>
 
+<!-- Mobile popup overlay -->
+<div class="mobile-popup" id="mobilePopup">
+  <button class="close-popup" id="closePopup">✕</button>
+  <iframe src="https://blinkgames007.github.io/G/hill-climb-racing/" allowfullscreen></iframe>
+</div>
+
 <!-- Bottom Ad -->
 <div class="ad-container" id="banner2"></div>
 
@@ -403,6 +428,8 @@
   const fullscreenBtn = document.getElementById('fullscreenBtn');
   const mobileCard = document.getElementById('mobileCard');
   const playOverlay = document.getElementById('playOverlay');
+  const mobilePopup = document.getElementById('mobilePopup');
+  const closePopup = document.getElementById('closePopup');
 
   // Desktop fullscreen button
   fullscreenBtn?.addEventListener('click', () => {
@@ -418,10 +445,13 @@
   // Mobile Poki button click
   playOverlay?.addEventListener('click', () => {
     mobileCard.style.display = 'none';
-    desktopContainer.classList.add('active-mobile');
+    mobilePopup.style.display = 'flex';
+  });
 
-    const iframe = desktopContainer.querySelector('iframe');
-    if (iframe) iframe.style.display = 'block';
+  // Close popup on mobile
+  closePopup?.addEventListener('click', () => {
+    mobilePopup.style.display = 'none';
+    mobileCard.style.display = 'block';
   });
 
   // Load ads for desktop only
@@ -432,7 +462,6 @@
     ads.loadAdUnit("banner2", "3089669868", "auto");
   }
 
-  // Only load ads if not mobile
   if (window.innerWidth > 768) {
     setTimeout(loadAds, 500);
   }
