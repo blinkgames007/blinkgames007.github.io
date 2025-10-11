@@ -97,18 +97,17 @@
   </div>
 </body>
 </html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Play Hill Climb Racing | Microbuzz Tech</title>
-  
-  <!-- ✅ SEO Meta -->
+  <title>Play Hill Climb Racing | Blink Infotech</title>
+
+  <!-- SEO Meta -->
   <meta name="description" content="Play Hill Climb Racing online for free. Click Play to start your adventure!"/>
   <meta name="keywords" content="hill climb racing, play online, free game"/>
-  <meta property="og:title" content="Play Hill Climb Racing | Microbuzz Tech"/>
+  <meta property="og:title" content="Play Hill Climb Racing | Blink Infotech"/>
   <meta property="og:description" content="Start playing Hill Climb Racing online instantly!"/>
   <meta property="og:type" content="website"/>
   <meta property="og:image" content="https://blinkgames007.github.io/assets/img_hillclimbracing.jpg"/>
@@ -116,37 +115,37 @@
 
   <!-- Fonts + CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: radial-gradient(circle at top, #43206f, #1c0936);
+    /* Center main content */
+    main {
+      flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      min-height: 100vh;
-      padding: 20px;
+      padding: 40px 20px;
+      background: radial-gradient(circle at top, #43206f, #1c0936);
     }
 
+    /* Game card styling (matches privacy policy design) */
     .game-card {
-      background: #1b0b3b;
+      background-color: #1b0b3b;
       border-radius: 20px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.6);
       overflow: hidden;
       max-width: 450px;
       width: 100%;
       text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      margin: 40px 0;
     }
 
     .game-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.7);
     }
 
-    .game-banner {
+    .game-card img {
       width: 100%;
       height: auto;
       display: block;
@@ -159,9 +158,8 @@
 
     .game-title {
       font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 15px;
       font-family: 'Press Start 2P', cursive;
+      margin-bottom: 15px;
       color: #fff;
     }
 
@@ -172,11 +170,9 @@
       font-weight: 600;
       color: #fff;
       background: linear-gradient(45deg, #ff416c, #ff4b2b);
-      border: none;
       border-radius: 12px;
-      cursor: pointer;
-      transition: all 0.3s ease;
       text-decoration: none;
+      transition: all 0.3s ease;
     }
 
     .play-btn:hover {
@@ -190,23 +186,24 @@
       .play-btn { width: 80%; padding: 12px 0; font-size: 16px; }
     }
   </style>
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Header will load here -->
+  <!-- Header -->
   <div id="header-placeholder"></div>
 
-  <!-- Game Card -->
-  <div class="game-card">
-    <img class="game-banner" src="https://blinkgames007.github.io/assets/img_hillclimbracing.jpg" alt="Hill Climb Racing">
-    <div class="game-content">
-      <h1 class="game-title">Hill Climb Racing</h1>
-      <a href="page.html" class="play-btn">▶ Play Now</a>
+  <!-- Main Content -->
+  <main>
+    <div class="game-card">
+      <img src="https://blinkgames007.github.io/assets/img_hillclimbracing.jpg" alt="Hill Climb Racing">
+      <div class="game-content">
+        <h1 class="game-title">Hill Climb Racing</h1>
+        <a href="page.html" class="play-btn">▶ Play Now</a>
+      </div>
     </div>
-  </div>
+  </main>
 
-  <!-- Footer will load here -->
+  <!-- Footer -->
   <div id="footer-placeholder"></div>
 
   <!-- Scripts -->
@@ -215,9 +212,7 @@
     function loadHTML(selector, url) {
       fetch(url)
         .then(response => response.text())
-        .then(data => {
-          document.querySelector(selector).innerHTML = data;
-        })
+        .then(data => { document.querySelector(selector).innerHTML = data; })
         .catch(err => console.error(`Error loading ${url}: ${err}`));
     }
 
