@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -14,8 +14,6 @@
     min-height: 100vh;
     background: radial-gradient(circle at top, #43206f, #1c0936);
   }
-
-  /* ---------------- Desktop Game Container ---------------- */
   .game-container {
     position: relative;
     width: 80%;
@@ -53,8 +51,6 @@
     background: rgba(255,255,255,0.25);
     transform: scale(1.1);
   }
-
-  /* ---------------- Mobile Poki-style Card ---------------- */
   .poki-card {
     display: none;
     position: relative;
@@ -130,23 +126,17 @@
     border: none;
     display: none;
   }
-
-  /* ---------------- Responsive Behavior ---------------- */
   @media (max-width: 768px) {
-    /* Hide desktop container on small screens */
     .game-container {
       display: none;
     }
     .fullscreen-btn {
       display: none;
     }
-
-    /* Show Poki-style card on small screens */
     .poki-card {
       display: block;
     }
 
-    /* Keep same radial-gradient background as desktop */
     body {
       background: radial-gradient(circle at top, #43206f, #1c0936);
     }
@@ -201,5 +191,270 @@
   });
 </script>
 
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ✅ Google tag (Analytics) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PS5SKEXHVW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-PS5SKEXHVW');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Hill Climb Racing - Play Free Online Game | Blink Infotech</title>
+
+  <!-- ✅ SEO Meta -->
+  <meta name="description" content="Play Hill Climb Racing online for free at Blink Infotech. Enjoy physics-based racing fun in your browser — no downloads needed!" />
+  <meta name="keywords" content="hill climb racing, online racing game, car climb game, blink infotech games, play free racing games" />
+  <meta property="og:title" content="Hill Climb Racing - Play Free Online Game | Blink Infotech" />
+  <meta property="og:description" content="Enjoy Hill Climb Racing online for free! Accelerate, flip, and race your way through fun levels." />
+  <meta property="og:image" content="https://blinkgames007.github.io/assets/img_hillclimbracing.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+
+  <!-- ✅ Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: radial-gradient(circle at top, #43206f, #1c0936);
+      min-height: 100vh;
+      color: #fff;
+    }
+
+    header {
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(5px);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    /* ✅ Ad Banners */
+    .ad-banner {
+      width: 100%;
+      max-width: 900px;
+      height: 90px;
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    /* ✅ Game container (Desktop) */
+    .game-container {
+      position: relative;
+      width: 80%;
+      max-width: 900px;
+      aspect-ratio: 16/9;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      background-color: #000;
+    }
+
+    .game-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    .fullscreen-btn {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(6px);
+      border: none;
+      color: white;
+      font-size: 20px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .fullscreen-btn:hover {
+      background: rgba(255,255,255,0.25);
+      transform: scale(1.1);
+    }
+
+    /* ✅ Mobile Poki-style Card */
+    .poki-card {
+      display: none;
+      position: relative;
+      width: 300px;
+      aspect-ratio: 1/1;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      background-color: #000;
+    }
+
+    .poki-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .play-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.35);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .play-overlay:hover {
+      background: rgba(0,0,0,0.5);
+    }
+
+    .play-btn {
+      width: 60px;
+      height: 60px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+      transition: transform 0.2s ease;
+    }
+
+    .play-btn:hover { transform: scale(1.2); }
+
+    .play-btn::before {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 18px solid #1c1c1c;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+
+    .play-text { color: white; font-weight: bold; font-size: 18px; }
+
+    /* ✅ Footer */
+    footer {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(255,255,255,0.05);
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .game-container, .fullscreen-btn { display: none; }
+      .poki-card { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Header -->
+  <header>
+    <h1>🎮 Hill Climb Racing</h1>
+    <p>Play Free Online | Blink Infotech</p>
+  </header>
+
+  <!-- ✅ Top Ad -->
+  <div class="ad-banner" id="banner1"></div>
+
+  <!-- ✅ Desktop Game Container -->
+  <div class="game-container" id="desktopGame">
+    <iframe 
+      id="desktopIframe" 
+      src="https://blinkgames007.github.io/G/hill-climb-racing/" 
+      allowfullscreen>
+    </iframe>
+    <button class="fullscreen-btn" id="fullscreenBtn" title="Fullscreen">⛶</button>
+  </div>
+
+  <!-- ✅ Mobile Poki Card -->
+  <div class="poki-card" id="mobileCard">
+    <img src="https://blinkgames007.github.io/assets/img_hillclimbracing.jpg" alt="Hill Climb Racing Thumbnail">
+    <div class="play-overlay" id="playOverlay">
+      <div class="play-btn"></div>
+      <div class="play-text">Play Now</div>
+    </div>
+  </div>
+
+  <!-- ✅ Bottom Ad -->
+  <div class="ad-banner" id="banner2"></div>
+
+  <!-- ✅ Footer -->
+  <footer>
+    &copy; <span id="year"></span> Blink Infotech. All rights reserved.
+  </footer>
+
+  <!-- ✅ Scripts -->
+  <script src="GoogleAdsManager.js"></script>
+  <script>
+    // Init Google Ads
+    const ads = new GoogleAdsManager("ca-pub-9301267932926503");
+    ads.loadAutoAds();
+    ads.loadAdUnit("banner1", "3089669868", "auto");
+    ads.loadAdUnit("banner2", "3089669868", "auto");
+  </script>
+
+  <script>
+    // Fullscreen logic (desktop)
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+    const desktopContainer = document.getElementById('desktopGame');
+    const mobileCard = document.getElementById('mobileCard');
+    const playOverlay = document.getElementById('playOverlay');
+    const year = document.getElementById('year');
+    year.textContent = new Date().getFullYear();
+
+    fullscreenBtn?.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        desktopContainer.requestFullscreen().catch(err => {
+          alert(`Error enabling fullscreen: ${err.message}`);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    });
+
+    // Mobile play overlay
+    playOverlay?.addEventListener('click', () => {
+      mobileCard.style.display = 'none';
+      desktopContainer.style.display = 'block';
+      desktopContainer.style.width = '100%';
+      desktopContainer.style.height = '100vh';
+      desktopContainer.style.borderRadius = '0';
+      desktopContainer.style.boxShadow = 'none';
+    });
+  </script>
 </body>
 </html>
