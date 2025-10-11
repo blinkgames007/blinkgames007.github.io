@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
-  <title>Block the pig - Fun HTML5 Game | Blink Games</title>
-  <meta name="description" content="Play Block the pig online, the popular HTML5 game by Blink Games. Drive vehicles, complete levels, and enjoy thrilling challenges directly in your browser.">
-  <meta name="keywords" content="Block the pig, HTML5 game, browser game, Blink Games, online playing game, free games">
-  <meta name="author" content="Blink Games">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
-  
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://blinkgames007.github.io/style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <style>
-  html, body {
+<title>Block the pig - Fun HTML5 Game | Blink Games</title>
+    <meta name="description" content="Play Block the pig online, the popular HTML5 game by Blink Games. Drive vehicles, complete levels, and enjoy thrilling challenges directly in your browser.">
+    <meta name="keywords" content="Block the pig, HTML5 game, browser game, Blink Games, online playing game, free games">
+    <meta name="author" content="Blink Games">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://blinkgames007.github.io/style.css" />
+<style>
+  body {
     margin: 0;
     padding: 0;
-    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #43206f, #1c0936);
     display: flex;
     flex-direction: column;
-    background: radial-gradient(circle at top, #43206f, #1c0936);
-    font-family: 'Poppins', sans-serif;
-    color: #fff;
+    min-height: 100vh;
   }
 
-  /* Main content wrapper to push footer down */
+  header, footer {
+    width: 100%;
+    flex-shrink: 0;
+  }
+
   main {
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    justify-content: center; /* vertical centering */
+    align-items: center;     /* horizontal centering */
     width: 100%;
+    padding: 40px 20px;
+    box-sizing: border-box;
   }
 
   .game-card {
@@ -40,11 +44,11 @@
     border-radius: 20px;
     overflow: hidden;
     max-width: 450px;
-    width: 90%;
+    width: 100%;
     text-align: center;
     box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 40px 0;
+    margin: 20px 0;
   }
 
   .game-card:hover {
@@ -52,20 +56,15 @@
     box-shadow: 0 15px 35px rgba(0,0,0,0.7);
   }
 
-  .game-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
+  .game-card img { width: 100%; display: block; }
 
-  .game-content {
-    padding: 20px;
-  }
+  .game-content { padding: 20px; color: #fff; }
 
   .game-title {
     font-size: 24px;
     font-family: 'Press Start 2P', cursive;
     margin-bottom: 15px;
+    color: #fff;
   }
 
   .play-btn {
@@ -85,7 +84,6 @@
     box-shadow: 0 8px 20px rgba(255,75,43,0.6);
   }
 
-  /* Ad banner styling */
   #banner1, #banner2 {
     width: 100%;
     max-width: 468px;
@@ -94,53 +92,10 @@
     text-align: center;
   }
 
-  /* Footer styles */
-  .site-footer {
-    background-color: #1b0b3b;
-    padding: 30px 20px;
-    text-align: center;
-    color: #fff;
-  }
-
-  .footer-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .footer-left, .footer-right {
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-  }
-
-  .footer-column h4 {
-    margin-bottom: 8px;
-  }
-
-  .footer-column a {
-    color: #fff;
-    text-decoration: none;
-    margin-bottom: 4px;
-  }
-
-  .footer-column a:hover {
-    text-decoration: underline;
-  }
-
-  .footer-bottom {
-    margin-top: 20px;
-    font-size: 14px;
-  }
-
   @media (max-width: 768px) {
     .game-card { max-width: 90%; }
     .game-title { font-size: 20px; }
     .play-btn { width: 80%; padding: 12px 0; font-size: 16px; }
-    .footer-container { flex-direction: column; align-items: center; }
-    .footer-left, .footer-right { align-items: center; }
   }
 </style>
 </head>
@@ -148,25 +103,23 @@
 
   <div id="header-container"></div>
 
-  <!-- ================= ADS ================= -->
-  <div id="banner1"></div>
-  
-  <!-- Main Game Card -->
-  <div class="game-card">
-    <img src="https://blinkgames007.github.io/assets/img_blockthepig.jpg" alt="Hill Climb Racing">
-    <div class="game-content">
-      <h1 class="game-title">Block The Pig</h1>
-      <a href="page.html" class="play-btn">▶ Play Now</a>
-    </div>
-  </div>
+  <main>
+    <div id="banner1"></div>
 
-  <!-- ================= ADS ================= -->
-  <div id="banner2"></div>
+    <div class="game-card">
+      <img src="https://blinkgames007.github.io/assets/img_blockthepig.jpg" alt="Block The Pig">
+      <div class="game-content">
+        <h1 class="game-title">Block The Pig</h1>
+        <a href="page.html" class="play-btn">▶ Play Now</a>
+      </div>
+    </div>
+
+    <div id="banner2"></div>
+  </main>
 
   <div id="footer-container"></div>
 
   <script src="https://blinkgames007.github.io/layout.js"></script>
-
   <script src="https://blinkgames007.github.io/config.js"></script>
   <script src="https://blinkgames007.github.io/GoogleAdsManager.js"></script>
   <script>
