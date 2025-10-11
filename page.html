@@ -200,7 +200,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Play Game with Ads | Blink Infotech</title>
-
 <style>
   body {
     margin: 0;
@@ -255,7 +254,8 @@
   .poki-card {
     display: none;
     position: relative;
-    width: 300px;
+    width: 90%;
+    max-width: 300px;
     aspect-ratio: 1/1;
     border-radius: 20px;
     overflow: hidden;
@@ -323,11 +323,11 @@
 
   /* Ads styling */
   .ad-container {
+    display: block;
     width: 100%;
     max-width: 728px;
+    min-width: 300px; /* Prevent width=0 errors */
     margin: 20px 0;
-    display: flex;
-    justify-content: center;
   }
 
   /* Responsive for mobile */
@@ -373,18 +373,12 @@
   <script src="config.js"></script>
   <script src="GoogleAdsManager.js"></script>
   <script>
-    // Load Ads
-    const ads = new GoogleAdsManager("ca-pub-9301267932926503");
-    ads.loadAutoAds();
-    ads.loadAdUnit("banner1", "3089669868", "auto");
-    ads.loadAdUnit("banner2", "3089669868", "auto");
-
-    // Fullscreen button
-    const fullscreenBtn = document.getElementById('fullscreenBtn');
     const desktopContainer = document.getElementById('desktopGame');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
     const mobileCard = document.getElementById('mobileCard');
     const playOverlay = document.getElementById('playOverlay');
 
+    // Fullscreen for desktop
     fullscreenBtn?.addEventListener('click', () => {
       if (!document.fullscreenElement) {
         desktopContainer.requestFullscreen().catch(err => {
@@ -395,7 +389,7 @@
       }
     });
 
-    // Mobile Poki-style overlay
+    // Mobile Poki overlay
     playOverlay?.addEventListener('click', () => {
       mobileCard.style.display = 'none';
       desktopContainer.style.display = 'block';
@@ -403,8 +397,21 @@
       desktopContainer.style.height = '100vh';
       desktopContainer.style.borderRadius = '0';
       desktopContainer.style.boxShadow = 'none';
+      loadAds(); // Load ads after container is visible
     });
+
+    // Function to load Ads safely
+    function loadAds() {
+      const ads = new GoogleAdsManager("ca-pub-9301267932926503");
+      ads.loadAutoAds();
+      ads.loadAdUnit("banner1", "3089669868", "auto");
+      ads.loadAdUnit("banner2", "3089669868", "auto");
+    }
+
+    // Load ads initially after a short delay to ensure width calculation
+    setTimeout(loadAds, 500);
   </script>
 
 </body>
 </html>
+
