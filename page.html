@@ -209,64 +209,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Responsive Game with Ad Banner</title>
+  <title>Responsive Game with Safe Ad Banner</title>
 
   <style>
-    /* ===== GLOBAL STYLES ===== */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
+      background: radial-gradient(circle at top, #43206f, #1c0936);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
       min-height: 100vh;
-      background: radial-gradient(circle at top, #43206f, #1c0936);
       overflow-x: hidden;
     }
 
-    /* ===== GOOGLE AD CONTAINER ===== */
+    /* Ad container (always visible and sized) */
     #banner1 {
-      width: 100%;
-      max-width: 970px;              /* max width for large screens */
-      min-height: 90px;              /* standard banner height */
       display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center;
+      width: 100%;
+      max-width: 970px;
+      min-height: 90px;
       margin: 20px auto;
-      background: rgba(255, 255, 255, 0.05); /* light tint for visibility */
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 8px;
       box-sizing: border-box;
     }
 
-    /* Mobile-friendly banner */
     @media (max-width: 768px) {
       #banner1 {
-        min-height: 50px;    /* smaller banner height on mobile */
-        max-width: 320px;    /* typical mobile ad width */
+        max-width: 320px;
+        min-height: 50px;
         margin: 10px auto;
       }
     }
 
-    /* ===== GAME CONTAINER (DESKTOP) ===== */
     .game-container {
-      position: relative;
       width: 90%;
       max-width: 900px;
-      aspect-ratio: 16/9;
+      aspect-ratio: 16 / 9;
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
       background-color: #000;
       margin-bottom: 20px;
+      position: relative;
     }
 
     .game-container iframe {
       width: 100%;
       height: 100%;
       border: none;
-      display: block;
     }
 
     .fullscreen-btn {
@@ -288,171 +283,49 @@
       background: rgba(255, 255, 255, 0.25);
       transform: scale(1.1);
     }
-
-    /* ===== MOBILE POKI-STYLE CARD ===== */
-    .poki-card {
-      display: none;
-      position: relative;
-      width: 300px;
-      aspect-ratio: 1/1;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-      background-color: #000;
-      margin-top: 20px;
-    }
-
-    .poki-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .play-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.35);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .play-overlay:hover {
-      background: rgba(0, 0, 0, 0.5);
-    }
-
-    .play-btn {
-      width: 60px;
-      height: 60px;
-      background: white;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 10px;
-      transition: transform 0.2s ease;
-    }
-
-    .play-btn:hover {
-      transform: scale(1.2);
-    }
-
-    .play-btn::before {
-      content: "";
-      display: block;
-      width: 0;
-      height: 0;
-      border-left: 18px solid #1c1c1c;
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid transparent;
-    }
-
-    .play-text {
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    /* ===== RESPONSIVE BEHAVIOR ===== */
-    @media (max-width: 768px) {
-      .game-container {
-        display: none; /* Hide desktop iframe */
-      }
-      .fullscreen-btn {
-        display: none;
-      }
-
-      .poki-card {
-        display: block; /* Show mobile version */
-      }
-
-      body {
-        background: radial-gradient(circle at top, #43206f, #1c0936);
-      }
-    }
   </style>
 </head>
 
 <body>
-  <!-- ========= AD BANNER ========= -->
+  <!-- ✅ Ad Banner -->
   <div id="banner1">
-    <!-- Ad will be loaded here -->
+    <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-9301267932926503"
+      data-ad-slot="3089669868"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
   </div>
 
-  <!-- ========= DESKTOP GAME ========= -->
-  <div class="game-container" id="desktopGame">
-    <iframe
-      id="desktopIframe"
-      src="https://blinkgames007.github.io/G/hill-climb-racing/"
-      allowfullscreen>
-    </iframe>
+  <!-- ✅ Game Frame -->
+  <div class="game-container">
+    <iframe src="https://blinkgames007.github.io/G/hill-climb-racing/" allowfullscreen></iframe>
     <button class="fullscreen-btn" id="fullscreenBtn" title="Fullscreen">⛶</button>
   </div>
 
-  <!-- ========= MOBILE GAME CARD ========= -->
-  <div class="poki-card" id="mobileCard">
-    <img src="https://blinkgames007.github.io/assets/img_hillclimbracing.jpg" alt="Game Thumbnail">
-    <div class="play-overlay" id="playOverlay">
-      <div class="play-btn"></div>
-      <div class="play-text">Play now</div>
-    </div>
-  </div>
+  <!-- ✅ AdSense Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9301267932926503"
+    crossorigin="anonymous"></script>
 
-  <!-- ========= GAME LOGIC ========= -->
   <script>
-    const fullscreenBtn = document.getElementById('fullscreenBtn');
-    const desktopContainer = document.getElementById('desktopGame');
-    const mobileCard = document.getElementById('mobileCard');
-    const playOverlay = document.getElementById('playOverlay');
-
-    fullscreenBtn?.addEventListener('click', () => {
-      if (!document.fullscreenElement) {
-        desktopContainer.requestFullscreen().catch(err => {
-          alert(`Error attempting to enable fullscreen: ${err.message}`);
-        });
-      } else {
-        document.exitFullscreen();
-      }
-    });
-
-    playOverlay?.addEventListener('click', () => {
-      mobileCard.style.display = 'none';
-      desktopContainer.style.display = 'block';
-      desktopContainer.style.width = '100%';
-      desktopContainer.style.height = '100vh';
-      desktopContainer.style.borderRadius = '0';
-      desktopContainer.style.boxShadow = 'none';
-    });
-  </script>
-
-  <!-- ========= GOOGLE ADS ========= -->
-  <script src="config.js"></script>
-  <script src="GoogleAdsManager.js"></script>
-  <script>
-    window.addEventListener("load", () => {
-      const banner = document.getElementById("banner1");
-
-      // Ensure banner has non-zero width before loading ads
-      const loadAdsWhenReady = () => {
-        if (banner && banner.offsetWidth > 0) {
-          const ads = new GoogleAdsManager("ca-pub-9301267932926503");
-          ads.loadAutoAds();
-          ads.loadAdUnit("banner1", "3089669868", "auto");
-        } else {
-          setTimeout(loadAdsWhenReady, 200);
+    function loadAdSafely() {
+      const ad = document.querySelector('.adsbygoogle');
+      if (ad && ad.offsetWidth > 0) {
+        try {
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          console.log("✅ Google ad loaded successfully");
+        } catch (e) {
+          console.warn("⚠️ Ad loading failed:", e);
         }
-      };
+      } else {
+        console.log("⏳ Waiting for banner width > 0...");
+        setTimeout(loadAdSafely, 250);
+      }
+    }
 
-      loadAdsWhenReady();
+    window.addEventListener('load', () => {
+      loadAdSafely();
     });
   </script>
 </body>
 </html>
-
