@@ -1,159 +1,143 @@
-<html><head>
-    <meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Super Slope Game</title>
-	<!-- Standardised web app manifest -->
-	
-	<!-- Allow fullscreen mode on iOS devices. (These are Apple specific meta tags.) -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<link rel="apple-touch-icon" sizes="256x256" href="icon-256.png">
-	<meta name="HandheldFriendly" content="true">
-	
-	<!-- Chrome for Android web app tags -->
-	<meta name="mobile-web-app-capable" content="yes">
-	<link rel="shortcut icon" sizes="256x256" href="icon-256.png">
-	<style>
-		a:-webkit-any-link {
-			color: -webkit-link;
-			cursor: pointer;
-			text-decoration: underline;
-		}
-		a{
-		  cursor: pointer;
-		}
-	  </style>
-    <!-- All margins and padding must be zero for the canvas to fill the screen. -->
-	<style type="text/css">
-		* {
-			padding: 0;
-			margin: 0;
-		}
-		html, body {
-			background: #000;
-			color: #fff;
-			overflow: hidden;
-			touch-action: none;
-			-ms-touch-action: none;
-		}
-		canvas {
-			touch-action-delay: none;
-			touch-action: none;
-			-ms-touch-action: none;
-		}
-    </style>
-	
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<script id="gamedistribution-jssdk" src="main.min.js"></script>
-<script src="offlineClient.js"></script></head> 
- 
-<body> 
-	<div id="fb-root"></div>
-	
-	<script>
-	// Issue a warning if trying to preview an exported project on disk.
-	(function(){
-		// Check for running exported on file protocol
-		if (window.location.protocol.substr(0, 4) === "file")
-		{
-			alert("Exported games won't work until you upload them. (When running on the file:/// protocol, browsers block many features from working for security reasons.)");
-		}
-	})();
-	</script>
-	
-	<!-- The canvas must be inside a div called c2canvasdiv -->
-	<div id="c2canvasdiv" style="width: 562px; height: 937px; margin-left: 327px; margin-top: 0px;">
-	
-		<!-- The canvas the project will render to.  If you change its ID, don't forget to change the
-		ID the runtime looks for in the jQuery events above (ready() and cr_sizeCanvas()). -->
-		<canvas id="c2canvas" width="562" height="937" style="width: 562px; height: 937px;">
-			<!-- This text is displayed if the visitor's browser does not support HTML5.
-			You can change it, but it is a good idea to link to a description of a browser
-			and provide some links to download some popular HTML5-compatible browsers. -->
-			<p>Your browser does not appear to support HTML5.  Try upgrading your browser to the latest version.  <a href="http://www.whatbrowser.org">What is a browser?</a>
-			<br><br><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">Microsoft Internet Explorer</a><br>
-			<a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a><br>
-			<a href="http://www.google.com/chrome/">Google Chrome</a><br>
-			<a href="http://www.apple.com/safari/download/">Apple Safari</a></p>
-		</canvas>
-		
-	</div>
-	
-	<!-- Pages load faster with scripts at the bottom -->
-	
-	<!-- Construct 2 exported games require jQuery. -->
-	<script src="jquery-3.4.1.min.js"></script>
+<title>Super Slope Game</title>
+  
+  <!-- Allow fullscreen mode on iOS devices. (These are Apple specific meta tags.) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" sizes="256x256" href="icon-256.png">
+  <meta name="HandheldFriendly" content="true">
+  
+  <!-- Chrome for Android web app tags -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="256x256" href="icon-256.png">
+        
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://blinkgames007.github.io/style.css" />
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #43206f, #1c0936);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
 
-	<script src="three.min.js"></script>
-	<script src="OBJLoader.js"></script>
-	<script src="Q3D.collisionSystem.js"></script>
-	<script src="Q3D.migrate.js"></script>
-	<script src="Q3D.commonACE.js"></script>
-	<script src="Q3D.qfxLoader.js"></script>
-	<script src="WebGLDeferredRenderer.js"></script>
-	<script src="ShaderDeferred.js"></script>
-	<script src="CopyShader.js"></script>
-	<script src="FXAAShader.js"></script>
-	<script src="EffectComposer.js"></script>
-	<script src="RenderPass.js"></script>
-	<script src="ShaderPass.js"></script>
-	<script src="MaskPass.js"></script>
-	<script src="Q3D.SkinnedMesh.js"></script>
-	<script src="Oimo.js"></script>
+  header, footer {
+    width: 100%;
+    flex-shrink: 0;
+  }
 
-	
-    <!-- The runtime script.  You can rename it, but don't forget to rename the reference here as well.
-    This file will have been minified and obfuscated if you enabled "Minify script" during export. -->
-	<script src="c2runtime.js"></script>
-	
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical centering */
+    align-items: center;     /* horizontal centering */
+    width: 100%;
+    padding: 40px 20px;
+    box-sizing: border-box;
+  }
 
-    <script>
-		// Start the Construct 2 project running on window load.
-		jQuery(document).ready(function ()
-		{			
-			// Create new runtime using the c2canvas
-			cr_createRuntime("c2canvas");
-		});
-		
-		// Pause and resume on page becoming visible/invisible
-		function onVisibilityChanged() {
-			if (document.hidden || document.mozHidden || document.webkitHidden || document.msHidden)
-				cr_setSuspended(true);
-			else
-				cr_setSuspended(false);
-		};
-		
-		document.addEventListener("visibilitychange", onVisibilityChanged, false);
-		document.addEventListener("mozvisibilitychange", onVisibilityChanged, false);
-		document.addEventListener("webkitvisibilitychange", onVisibilityChanged, false);
-		document.addEventListener("msvisibilitychange", onVisibilityChanged, false);
-		
-		function OnRegisterSWError(e)
-		{
-			console.warn("Failed to register service worker: ", e);
-		};
-		
-		// Runtime calls this global method when ready to start caching (i.e. after startup).
-		// This registers the service worker which caches resources for offline support.
-		window.C2_RegisterSW = function C2_RegisterSW()
-		{
-			if (!navigator.serviceWorker)
-				return;		// no SW support, ignore call
-			
-			try {
-				navigator.serviceWorker.register("sw.js", { scope: "./" })
-				.then(function (reg)
-				{
-					console.log("Registered service worker on " + reg.scope);
-				})
-				.catch(OnRegisterSWError);
-			}
-			catch (e)
-			{
-				OnRegisterSWError(e);
-			}
-		};
-    </script>
- 
- </body></html>
+  .game-card {
+    background-color: #1b0b3b;
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 20px 0;
+  }
+
+  .game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+  }
+
+  .game-card img { width: 100%; display: block; }
+
+  .game-content { padding: 20px; color: #fff; }
+
+  .game-title {
+    font-size: 24px;
+    font-family: 'Press Start 2P', cursive;
+    margin-bottom: 15px;
+    color: #fff;
+  }
+
+  .play-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .play-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255,75,43,0.6);
+  }
+
+  #banner1, #banner2 {
+    width: 100%;
+    max-width: 468px;
+    min-height: 90px;
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .game-card { max-width: 90%; }
+    .game-title { font-size: 20px; }
+    .play-btn { width: 80%; padding: 12px 0; font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+  <div id="header-container"></div>
+
+  <main>
+    <div id="banner1"></div>
+
+    <!-- Main Game Card -->
+  <div class="game-card">
+    <img src="https://blinkgames007.github.io/assets/img_superslopgame.jpg" alt="Super Slope Game">
+    <div class="game-content">
+      <h1 class="game-title">Super Slope Game</h1>
+      <a href="page.html" class="play-btn">▶ Play Now</a>
+    </div>
+  </div>
+
+    <div id="banner2"></div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="https://blinkgames007.github.io/layout.js"></script>
+  <script src="https://blinkgames007.github.io/config.js"></script>
+  <script src="https://blinkgames007.github.io/GoogleAdsManager.js"></script>
+  <script>
+    window.onload = () => {
+      const ads = new GoogleAdsManager("ca-pub-9301267932926503");
+      ads.loadAutoAds();
+      ads.loadAdUnit("banner1", "3089669868", "auto");
+      ads.loadAdUnit("banner2", "3089669868", "auto");
+    };
+  </script>
+
+</body>
+</html>

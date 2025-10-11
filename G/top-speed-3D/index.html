@@ -1,38 +1,135 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Top Speed 3D - Racing HTML5 Game | Blink Games</title>
-	<meta name="description" content="Top Speed 3D, a Racing HTML5 game by Blink Games. Enjoy exciting levels and challenge your skills directly in your browser.">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Top Speed 3D - Racing HTML5 Game | Blink Games</title>
+  <meta name="description" content="Top Speed 3D, a Racing HTML5 game by Blink Games. Enjoy exciting levels and challenge your skills directly in your browser.">
     <meta name="keywords" content="Top Speed 3D, HTML5 game, browser game, Blink Games, online games, free games">
     <meta name="author" content="Blink Games">
+        
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://blinkgames007.github.io/style.css" />
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #43206f, #1c0936);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
 
-	<script>
-	window.config = {
-		loader: 'unity',
-		debug: false,
-		maxRatio: 16 / 9,
-		minRatio: 9 / 16,
+  header, footer {
+    width: 100%;
+    flex-shrink: 0;
+  }
 
-		title: 'Top Speed 3D',
-		thumbnail: 'https:\/\/img.poki.com\/7e067144-8a83-4bd0-9a9a-22d89dd80cb6.png',
-		numScreenshots:  4 ,
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical centering */
+    align-items: center;     /* horizontal centering */
+    width: 100%;
+    padding: 40px 20px;
+    box-sizing: border-box;
+  }
 
-		unityVersion: '2018.3.0f2',
-		unityWebglBuildUrl: 'Build\/TopSpeed3D.json',
+  .game-card {
+    background-color: #1b0b3b;
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 20px 0;
+  }
 
-		fileSize:  66 ,
-		cachedDecompressedFileSizes: {
-			'TopSpeed3D.data.unityweb':  43405091 ,
-			'TopSpeed3D.wasm.code.unityweb':  22437458 ,
-			'TopSpeed3D.wasm.framework.unityweb':  523689 ,
-		},
-	};
-	</script>
+  .game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+  }
+
+  .game-card img { width: 100%; display: block; }
+
+  .game-content { padding: 20px; color: #fff; }
+
+  .game-title {
+    font-size: 24px;
+    font-family: 'Press Start 2P', cursive;
+    margin-bottom: 15px;
+    color: #fff;
+  }
+
+  .play-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .play-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255,75,43,0.6);
+  }
+
+  #banner1, #banner2 {
+    width: 100%;
+    max-width: 468px;
+    min-height: 90px;
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .game-card { max-width: 90%; }
+    .game-title { font-size: 20px; }
+    .play-btn { width: 80%; padding: 12px 0; font-size: 16px; }
+  }
+</style>
 </head>
 <body>
-	<script src="master-loader.js"></script>
+
+  <div id="header-container"></div>
+
+  <main>
+    <div id="banner1"></div>
+
+    <!-- Main Game Card -->
+  <div class="game-card">
+    <img src="https://blinkgames007.github.io/assets/img_topspeed3d.jpg" alt="Top Speed 3D">
+    <div class="game-content">
+      <h1 class="game-title">Top Speed 3D</h1>
+      <a href="page.html" class="play-btn">▶ Play Now</a>
+    </div>
+  </div>
+
+    <div id="banner2"></div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="https://blinkgames007.github.io/layout.js"></script>
+  <script src="https://blinkgames007.github.io/config.js"></script>
+  <script src="https://blinkgames007.github.io/GoogleAdsManager.js"></script>
+  <script>
+    window.onload = () => {
+      const ads = new GoogleAdsManager("ca-pub-9301267932926503");
+      ads.loadAutoAds();
+      ads.loadAdUnit("banner1", "3089669868", "auto");
+      ads.loadAdUnit("banner2", "3089669868", "auto");
+    };
+  </script>
+
 </body>
 </html>
