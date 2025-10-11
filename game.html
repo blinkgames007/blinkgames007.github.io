@@ -125,20 +125,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Play Hill Climb Racing | Blink Infotech</title>
-
-  <!-- SEO Meta -->
-  <meta name="description" content="Play Hill Climb Racing online for free. Click Play to start your adventure!"/>
-  <meta name="keywords" content="hill climb racing, play online, free game"/>
-  <meta property="og:title" content="Play Hill Climb Racing | Blink Infotech"/>
-  <meta property="og:description" content="Start playing Hill Climb Racing online instantly!"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:image" content="https://blinkgames007.github.io/assets/img_hillclimbracing.jpg"/>
-  <link rel="icon" href="favicon.png" type="image/png"/>
-
-  <!-- Fonts + CSS -->
+  <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css">
-
   <style>
     main {
       flex: 1;
@@ -165,46 +153,16 @@
       box-shadow: 0 15px 35px rgba(0,0,0,0.7);
     }
 
-    .game-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .game-content {
-      padding: 20px;
-      color: #fff;
-    }
-
-    .game-title {
-      font-size: 24px;
-      font-family: 'Press Start 2P', cursive;
-      margin-bottom: 15px;
-      color: #fff;
-    }
-
+    .game-card img { width: 100%; height: auto; display: block; }
+    .game-content { padding: 20px; color: #fff; }
+    .game-title { font-size: 24px; font-family: 'Press Start 2P', cursive; margin-bottom: 15px; color: #fff; }
     .play-btn {
-      display: inline-block;
-      padding: 14px 28px;
-      font-size: 16px;
-      font-weight: 600;
-      color: #fff;
-      background: linear-gradient(45deg, #ff416c, #ff4b2b);
-      border-radius: 12px;
-      text-decoration: none;
-      transition: all 0.3s ease;
+      display: inline-block; padding: 14px 28px; font-size: 16px; font-weight: 600;
+      color: #fff; background: linear-gradient(45deg, #ff416c, #ff4b2b);
+      border-radius: 12px; text-decoration: none; transition: all 0.3s ease;
     }
-
-    .play-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(255,75,43,0.6);
-    }
-
-    @media (max-width: 768px) {
-      .game-card { max-width: 100%; }
-      .game-title { font-size: 20px; }
-      .play-btn { width: 80%; padding: 12px 0; font-size: 16px; }
-    }
+    .play-btn:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(255,75,43,0.6); }
+    @media (max-width: 768px) { .game-card { max-width: 100%; } .game-title { font-size: 20px; } .play-btn { width: 80%; padding: 12px 0; font-size: 16px; } }
   </style>
 </head>
 <body>
@@ -228,27 +186,24 @@
 
   <!-- Scripts -->
   <script src="config.js"></script>
-
   <script>
-    // Load header and footer dynamically and initialize script after load
-    async function loadHeaderFooter() {
+    // Load header/footer then init page scripts
+    async function loadHeaderFooterAndInit() {
       // Load header
-      await fetch('header.html')
-        .then(res => res.text())
-        .then(html => document.getElementById('header-placeholder').innerHTML = html);
+      const headerHTML = await fetch('header.html').then(r => r.text());
+      document.getElementById('header-placeholder').innerHTML = headerHTML;
 
       // Load footer
-      await fetch('footer.html')
-        .then(res => res.text())
-        .then(html => document.getElementById('footer-placeholder').innerHTML = html);
+      const footerHTML = await fetch('footer.html').then(r => r.text());
+      document.getElementById('footer-placeholder').innerHTML = footerHTML;
 
-      // Now run your script.js dynamic content safely
+      // Now run your dynamic script safely
       const script = document.createElement('script');
       script.src = 'script.js';
       document.body.appendChild(script);
     }
 
-    loadHeaderFooter();
+    loadHeaderFooterAndInit();
   </script>
 </body>
 </html>
