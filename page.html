@@ -330,16 +330,26 @@
     margin: 20px 0;
   }
 
-  /* Responsive for mobile */
+  /* Mobile adjustments */
   @media (max-width: 768px) {
     .game-container {
-      display: none;
+      display: none; /* initially hide desktop game */
     }
     .fullscreen-btn {
       display: none;
     }
     .poki-card {
-      display: block;
+      display: block; /* show overlay card */
+    }
+
+    /* Activate game iframe on mobile after click */
+    .game-container.active-mobile {
+      display: block !important;
+      width: 100% !important;
+      height: 100vh !important;
+      aspect-ratio: auto !important;
+      border-radius: 0;
+      box-shadow: none;
     }
   }
 </style>
@@ -389,18 +399,14 @@
       }
     });
 
-    // Mobile Poki overlay
+    // Mobile Poki overlay click
     playOverlay?.addEventListener('click', () => {
       mobileCard.style.display = 'none';
-      desktopContainer.style.display = 'block';
-      desktopContainer.style.width = '100%';
-      desktopContainer.style.height = '100vh';
-      desktopContainer.style.borderRadius = '0';
-      desktopContainer.style.boxShadow = 'none';
-      loadAds(); // Load ads after container is visible
+      desktopContainer.classList.add('active-mobile');
+      loadAds(); // load ads after container is visible
     });
 
-    // Function to load Ads safely
+    // Load Ads safely
     function loadAds() {
       const ads = new GoogleAdsManager("ca-pub-9301267932926503");
       ads.loadAutoAds();
@@ -408,7 +414,7 @@
       ads.loadAdUnit("banner2", "3089669868", "auto");
     }
 
-    // Load ads initially after a short delay to ensure width calculation
+    // Initial ad load after short delay to ensure container width
     setTimeout(loadAds, 500);
   </script>
 
