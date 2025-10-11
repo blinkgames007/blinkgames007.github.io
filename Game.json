@@ -45,9 +45,49 @@
     "page": "G/yohoho-io/"
   },
   {
+    "title": "Truck Loader 5",
+    "thumbnail": "assets/img_truckloader5.jpg",
+    "page": "G/truck-loader5/"
+  },
+  {
+    "title": "Truck Loader 4",
+    "thumbnail": "assets/img_truckloader4.jpg",
+    "page": "G/truck-loader4/"
+  },
+  {
+    "title": "Truck Loader 3",
+    "thumbnail": "assets/img_truckloader3.jpg",
+    "page": "G/truck-loader3/"
+  },
+  {
+    "title": "Truck Loader 2",
+    "thumbnail": "assets/img_truckloader2.jpg",
+    "page": "G/truck-loader2/"
+  },
+  {
+    "title": "Truck Loader",
+    "thumbnail": "assets/img_truckloader1.jpg",
+    "page": "G/truck-loader1/"
+  },
+  {
     "title": "Top Speed 3D",
     "thumbnail": "assets/img_topspeed3d.jpg",
     "page": "G/top-speed-3D/"
+  },
+  {
+    "title": "Tiny Towers",
+    "thumbnail": "assets/img_tinytower.jpg",
+    "page": "G/tiny-towers/"
+  },
+  {
+    "title": "Tiny Fishing",
+    "thumbnail": "assets/img_tinyfishing.jpg",
+    "page": "G/tiny-fishing/"
+  },
+  {
+    "title": "The Sinper Code",
+    "thumbnail": "assets/img_thesnipercode.png",
+    "page": "G/the-sniper-code/"
   },
   {
     "title": "The Impossible Quiz 2",
