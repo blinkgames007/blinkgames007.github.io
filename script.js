@@ -55,18 +55,15 @@ function createGameCard(game) {
     <img src="${game.thumbnail}" alt="${game.title}" loading="lazy">
     <h4>${game.title}</h4>
   `;
-  card.addEventListener("click", () => window.location.href = game.page);
+  // card.addEventListener("click", () => window.location.href = game.page);
+  //testing
+  card.addEventListener("click", () => {
+    saveRecentlyPlayed(game);
+    window.location.href = game.page;
+  });
+
   return card;
 }
-
-// // ================= SEARCH FILTER =================
-// function filterGames(query) {
-//   query = query.trim().toLowerCase();
-//   document.querySelectorAll(".game-card").forEach(card => {
-//     const title = card.querySelector("h4").textContent.toLowerCase();
-//     card.style.display = (query === "" || title.startsWith(query)) ? "block" : "none";
-//   });
-// }
 
 // ================= SEARCH FILTER =================
 function filterGames(query) {
@@ -82,3 +79,34 @@ function filterGames(query) {
 function toggleSearch() {
   document.querySelector(".search-bar").classList.toggle("active");
 }
+
+// ================= Testing New Update =================
+function saveRecentlyPlayed(game) {
+  let played = JSON.parse(localStorage.getItem("recentlyPlayed")) || [];
+  
+  // Remove duplicates
+  played = played.filter(g => g.title !== game.title);
+  
+  // Add new one at the top
+  played.unshift(game);
+  
+  // Limit to last 5 games
+  played = played.slice(0, 5);
+  
+  localStorage.setItem("recentlyPlayed", JSON.stringify(played));
+}
+
+function displayRecentlyPlayed() {
+  const container = document.querySelector(".recently-played");
+  const played = JSON.parse(localStorage.getItem("recentlyPlayed")) || [];
+  
+  container.innerHTML = played.length
+    ? played.map(g => `
+        <div class="game-card small">
+          <img src="${g.thumbnail}" alt="${g.title}">
+          <h5>${g.title}</h5>
+        </div>
+      `).join("")
+    : "<p>No games played yet.</p>";
+}
+
