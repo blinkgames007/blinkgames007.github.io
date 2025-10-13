@@ -59,12 +59,22 @@ function createGameCard(game) {
   return card;
 }
 
+// // ================= SEARCH FILTER =================
+// function filterGames(query) {
+//   query = query.trim().toLowerCase();
+//   document.querySelectorAll(".game-card").forEach(card => {
+//     const title = card.querySelector("h4").textContent.toLowerCase();
+//     card.style.display = (query === "" || title.startsWith(query)) ? "block" : "none";
+//   });
+// }
+
 // ================= SEARCH FILTER =================
 function filterGames(query) {
   query = query.trim().toLowerCase();
   document.querySelectorAll(".game-card").forEach(card => {
     const title = card.querySelector("h4").textContent.toLowerCase();
-    card.style.display = (query === "" || title.startsWith(query)) ? "block" : "none";
+    // Show cards that include the search query anywhere in the title
+    card.style.display = (query === "" || title.includes(query)) ? "block" : "none";
   });
 }
 
