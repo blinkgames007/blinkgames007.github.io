@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // ================= GAMES =================
   const games = await fetchGames(info.apis?.games);
-  const container = document.querySelector(".games-container");
+  const container = document.getElementById("games").querySelector(".games-container");
   container.innerHTML = "";
   games.forEach(game => container.appendChild(createGameCard(game)));
 
