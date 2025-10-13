@@ -42,6 +42,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   container.innerHTML = "";
   games.forEach(game => container.appendChild(createGameCard(game)));
 
+  // ================= RECENTLY PLAYED =================
+  displayRecentlyPlayed();
+
   // ================= SEARCH =================
   const searchInput = document.getElementById("gameSearch");
   searchInput?.addEventListener("input", () => filterGames(searchInput.value));
@@ -94,6 +97,9 @@ function saveRecentlyPlayed(game) {
   played = played.slice(0, 5);
   
   localStorage.setItem("recentlyPlayed", JSON.stringify(played));
+
+  // Refresh section instantly
+  displayRecentlyPlayed();
 }
 
 function displayRecentlyPlayed() {
