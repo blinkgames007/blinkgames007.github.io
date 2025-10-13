@@ -38,16 +38,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // ================= GAMES =================
   const games = await fetchGames(info.apis?.games);
-  const container = document.getElementById("games").querySelector(".games-container");
-  container.innerHTML = "";
-  games.forEach(game => container.appendChild(createGameCard(game)));
+  const mainContainer = document.getElementById("games").querySelector(".games-container"); // main games container
+  mainContainer.innerHTML = "";
+  games.forEach(game => mainContainer.appendChild(createGameCard(game)));
+
+  // ================= RECENTLY PLAYED =================
+  renderRecentlyPlayed(); // fills #recent-container
+
 
   // ================= SEARCH =================
   const searchInput = document.getElementById("gameSearch");
   searchInput?.addEventListener("input", () => filterGames(searchInput.value));
 
-  // Render recently played after games load
-  renderRecentlyPlayed();
 });
 
 // ================= GAME CARD =================
@@ -106,7 +108,7 @@ function addToRecentlyPlayed(game) {
 function renderRecentlyPlayed() {
   const key = "recentlyPlayedGames";
   const section = document.getElementById("recently-played");
-  const container = document.getElementById("recent-container");
+  const container = document.getElementById("recent-container"); // ✅ target only recently played
   const stored = JSON.parse(localStorage.getItem(key));
 
   // Hide section if no data or first-time user
