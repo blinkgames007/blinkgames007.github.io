@@ -25,12 +25,6 @@
   <!-- Fonts + CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css">
-
-  <!-- //testing -->
-  <!-- Google Publisher Tag -->
-  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-
-
 </head>
 <body>
 
@@ -65,7 +59,7 @@
       <div class="games-container" id="recent-container"></div>
     </section>
 
-    <!-- ================= Main ================= -->
+    <!-- ================= RECENTLY PLAYED ================= -->
     <section id="games">
       <h2 class="section-title">🔥 Play Online Games</h2>
       <div class="games-container"></div>
@@ -74,10 +68,6 @@
 
 <!-- ================= ADS ================= -->
 <div id="banner2"></div>
-
-<div id="banner100" style="width:100%; max-width:728px; margin:0 auto;"></div>
-<div id="banner200" style="width:100%; max-width:300px; margin:20px auto;"></div>
-
   
   <!-- ================= FOOTER ================= -->
   <footer class="site-footer">
@@ -125,48 +115,6 @@
     ads.loadAdUnit("banner1", "3089669868", "auto");
   ads.loadAdUnit("banner2", "3089669868", "auto");
   </script>
-
-  <script>
-window.googletag = window.googletag || {cmd: []};
-
-googletag.cmd.push(function() {
-  
-  // ================== Responsive Sizes ==================
-  const banner1Sizes = [
-    [728, 90],   // Desktop
-    [468, 60],   // Tablet
-    [320, 50]    // Mobile
-  ];
-
-  const banner2Sizes = [
-    [300, 250],  // Desktop
-    [250, 250],  // Tablet
-    [200, 200],  // Mobile
-    [300, 100],  // Mobile wide
-  ];
-
-  // ================== Define Slots ==================
-  const banner1 = googletag.defineSlot('/23319699370/homepage_banner007', banner1Sizes, 'banner1')
-                            .addService(googletag.pubads());
-
-  const banner2 = googletag.defineSlot('/23319699370/homepage_banner007', banner2Sizes, 'banner2')
-                            .addService(googletag.pubads());
-
-  // Collapse empty divs if no ad fills
-  googletag.pubads().collapseEmptyDivs();
-
-  // Enable single request mode for faster loading
-  googletag.pubads().enableSingleRequest();
-
-  // Enable GPT services
-  googletag.enableServices();
-
-  // Display the ads
-  googletag.display('banner100');
-  googletag.display('banner200');
-});
-</script>
-
 
   <script src="script.js"></script>
 </body>
