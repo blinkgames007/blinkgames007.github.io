@@ -30,6 +30,16 @@
     "page": "G/stickman-fighter-epic-battle/"
   },
   {
+    "title": "OvO",
+    "thumbnail": "assets/img_ovo.png",
+    "page": "G/ovo/"
+  },
+  {
+    "title": "Mr Bullet C2",
+    "thumbnail": "assets/img_mrbulletc2.jpg",
+    "page": "G/mr-bullet-c2/"
+  },
+  {
     "title": "Eggy car",
     "thumbnail": "assets/img_eggycar.jpg",
     "page": "G/eggy-car/"
@@ -43,6 +53,26 @@
     "title": "Yohoho.io",
     "thumbnail": "assets/img_yohohoio.jpg",
     "page": "G/yohoho-io/"
+  },
+  {
+    "title": "Worlds hardest game",
+    "thumbnail": "assets/img_worldshardestgame.jpg",
+    "page": "G/worlds-hardest-game/"
+  },
+  {
+    "title": "We become what we behold",
+    "thumbnail": "assets/img_webecomewhatwebehold.png",
+    "page": "G/we-become-what-we-behold/"
+  },
+  {
+    "title": "Tunnel Rush",
+    "thumbnail": "assets/img_tunnelrush.jpg",
+    "page": "G/tunnel-rush/"
+  },
+  {
+    "title": "Tunnel Rush 2",
+    "thumbnail": "assets/img_tunnelrush2.jpg",
+    "page": "G/tunnel-rush2/"
   },
   {
     "title": "Truck Loader 5",
@@ -208,6 +238,11 @@
     "title": "Subway Surfers Seoul",
     "thumbnail": "assets/img_subwayseoul.jpg",
     "page": "G/subway-surfers-seoul/"
+  },
+  {
+    "title": "Subway Surfers Sanfrancisco",
+    "thumbnail": "assets/img_subwaysanfrancisco.jpg",
+    "page": "G/subway-surfers-sanfrancisco/"
   },
   {
     "title": "Hill Climb Racing",
