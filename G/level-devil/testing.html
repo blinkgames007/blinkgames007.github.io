@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Level Devil - Fun HTML5 Game | Blink Games</title>
+<meta name="description" content="Play Level Devil, a fun HTML5 game by Blink Games. Enjoy exciting levels and challenge your skills directly in your browser.">
+<meta name="keywords" content="Level Devil, HTML5 game, browser game, Blink Games, online games, free games">
+<meta name="author" content="Blink Games">
+<link rel="icon" type="image/png" href="favicon.ico">  
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #43206f, #1c0936);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  header, footer {
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  main {
+    flex: 1;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  /* --- Game Header --- */
+  .game-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 40px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  }
+
+  .game-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+  }
+
+  .game-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 22px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .game-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .game-text h1 {
+    font-size: 28px;
+    margin: 0;
+    font-weight: 700;
+  }
+
+  .developer {
+    font-size: 15px;
+    color: #ccc;
+  }
+
+  .stats {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #ddd;
+  }
+
+  .stats div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .play-btn {
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 28px;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .play-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255,75,43,0.6);
+  }
+
+  /* --- Banner --- */
+  .banner {
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 30px 0;
+  }
+
+  .banner img {
+    width: 100%;
+    display: block;
+  }
+
+  /* --- Screenshots --- */
+  .screenshots {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
+    margin-top: 20px;
+  }
+
+  .screenshots img {
+    width: 180px;
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+
+  /* --- Description --- */
+  .description {
+    margin-top: 30px;
+    line-height: 1.6;
+    font-size: 16px;
+    color: #ddd;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+  /* --- Ad Banner Area --- */
+  #banner-bottom {
+    margin: 40px 0;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .game-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .game-info {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .game-icon {
+      width: 90px;
+      height: 90px;
+    }
+
+    .game-text h1 {
+      font-size: 22px;
+    }
+
+    .play-btn {
+      width: 80%;
+      text-align: center;
+    }
+
+    .screenshots img {
+      width: 140px;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <div id="header-container"></div>
+
+  <main>
+    <!-- Game Header Section -->
+    <div class="game-header">
+      <div class="game-info">
+        <div class="game-icon">
+          <img src="https://blinkgames007.github.io/assets/img_leveldevil_icon.jpg" alt="Level Devil Icon">
+        </div>
+        <div class="game-text">
+          <h1>Level Devil</h1>
+          <div class="developer">By Blink Games</div>
+          <div class="stats">
+            <div>⭐ 4.2</div>
+            <div>100K+ downloads</div>
+            <div>Rated for 3+</div>
+          </div>
+        </div>
+      </div>
+      <a href="page.html" class="play-btn">▶ Play Now</a>
+    </div>
+
+    <!-- Banner Image -->
+    <div class="banner">
+      <img src="https://blinkgames007.github.io/assets/img_leveldevil_banner.jpg" alt="Level Devil Banner">
+    </div>
+
+    <!-- Screenshots -->
+    <div class="screenshots">
+      <img src="https://blinkgames007.github.io/assets/snap1.jpg" alt="Level Devil Screenshot 1">
+      <img src="https://blinkgames007.github.io/assets/snap2.jpg" alt="Level Devil Screenshot 2">
+      <img src="https://blinkgames007.github.io/assets/snap3.jpg" alt="Level Devil Screenshot 3">
+      <img src="https://blinkgames007.github.io/assets/snap4.jpg" alt="Level Devil Screenshot 4">
+    </div>
+
+    <!-- Game Description -->
+    <div class="description">
+      <h2>About this game</h2>
+      <p>
+        Level Devil is a challenging platformer that tests your reflexes and patience.
+        Dodge traps, survive deadly surprises, and conquer tricky stages designed to
+        trick your instincts. Can you outsmart the devilish levels and reach the end?
+      </p>
+      <p>
+        Play directly in your browser — no downloads required! Perfect for fans of
+        skill-based puzzle platformers who love to rage and laugh at the same time.
+      </p>
+    </div>
+
+    <!-- Ad Banner (bottom, before footer) -->
+    <div id="banner-bottom"></div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="https://blinkgames007.github.io/layout.js"></script>
+  <script src="https://blinkgames007.github.io/config.js"></script>
+  <script src="https://blinkgames007.github.io/GoogleAdsManager.js"></script>
+  <script>
+    window.onload = () => {
+      const ads = new GoogleAdsManager("ca-pub-9301267932926503");
+      ads.loadAutoAds();
+      ads.loadAdUnit("banner-bottom", "3089669868", "auto");
+    };
+  </script>
+</body>
+</html>
