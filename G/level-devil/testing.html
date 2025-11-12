@@ -147,15 +147,33 @@
     display: flex;
     gap: 12px;
     overflow-x: auto;
-    padding: 10px 0 20px;
+    padding: 12px 0 5px;
     scroll-behavior: smooth;
+    scrollbar-width: thin;
+  }
+
+  .screenshots::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .screenshots::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 10px;
   }
 
   .screenshots img {
-    width: 200px;
-    border-radius: 12px;
+    height: 200px;          /* fixed height so landscape & portrait align nicely */
+    width: auto;            /* auto width keeps aspect ratio */
+    border-radius: 15px;
     flex-shrink: 0;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
+
+  .screenshots img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
 
   /* --- Description --- */
   .description {
@@ -226,14 +244,13 @@
     <div class="game-header">
       <div class="game-info">
         <div class="game-icon">
-          <img src="https://blinkgames007.github.io/assets/img_leveldevil_icon.jpg" alt="Level Devil Icon">
+          <img src="favicon.ico" alt="Level Devil Icon">
         </div>
         <div class="game-text">
           <h1>Level Devil</h1>
-          <div class="developer">By Blink Games</div>
+          <div class="developer">Blink Games</div>
           <div class="stats">
             <div>⭐ 4.2</div>
-            <div>100K+ downloads</div>
             <div>Rated for 3+</div>
           </div>
         </div>
@@ -246,15 +263,16 @@
 
     <!-- Banner Image -->
     <div class="banner">
-      <img src="https://blinkgames007.github.io/assets/img_leveldevil_banner.jpg" alt="Level Devil Banner">
+      <img src="sl/img_leveldevil.jpg" alt="Level Devil Banner">
     </div>
 
     <!-- Screenshots -->
     <div class="screenshots">
-      <img src="https://blinkgames007.github.io/assets/snap1.jpg" alt="Screenshot 1">
-      <img src="https://blinkgames007.github.io/assets/snap2.jpg" alt="Screenshot 2">
-      <img src="https://blinkgames007.github.io/assets/snap3.jpg" alt="Screenshot 3">
-      <img src="https://blinkgames007.github.io/assets/snap4.jpg" alt="Screenshot 4">
+      <img src="sl/snap1.png" alt="Screenshot 1">
+      <img src="sl/snap2.jpg" alt="Screenshot 2">
+      <img src="sl/snap3.jpg" alt="Screenshot 3">
+      <img src="sl/snap4.jpg" alt="Screenshot 4">
+      <img src="sl/snap5.png" alt="Screenshot 5">
     </div>
 
     <!-- Description -->
