@@ -9,7 +9,7 @@
 <meta name="author" content="Blink Games">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">  
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="https://blinkgames007.github.io/style.css" />
+<link rel="stylesheet" href="../../style.css" />
 
 <!-- Schema.org structured data -->
 <script type="application/ld+json">
@@ -22,7 +22,7 @@
   "operatingSystem": "Web Browser",
   "applicationCategory": "Game",
   "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.2", "ratingCount": "1500" },
-  "url": "https://blinkgames007.github.io/leveldevil.html"
+  "url": "../../G/level-devil/"
 }
 </script>
 
@@ -192,25 +192,98 @@ main {
 }
 .features { margin-top: 20px; padding-left: 20px; }
 .features li { margin-bottom: 10px; }
-/* --- Related Games --- */
+
+/* ===========================
+   🎮 Related Games (Blink Games Style)
+   =========================== */
+
 .related-games {
-  margin-top: 50px;
+  margin-top: 60px;
+  padding: 20px;
+  text-align: center;
 }
+
 .related-games h2 {
   font-family: 'Press Start 2P', cursive;
-  font-size: 18px; margin-bottom: 20px; text-align: center;
+  font-size: 1.4rem;
+  color: var(--primary, #00ffcc);
+  margin-bottom: 30px;
+  letter-spacing: 1px;
 }
+
+/* 🔹 Game Grid Layout */
 .related-games .game-grid {
-  display: flex; gap: 15px; flex-wrap: wrap;
-  justify-content: center; text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.related-games img {
-  width: 130px; border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+
+/* 🔹 Game Card Style */
+.related-games .game-grid a {
+  display: block;
+  text-decoration: none;
+  background: var(--bg-card, #171717);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
 }
-.related-games span {
-  display: block; margin-top: 8px; font-size: 14px;
+
+.related-games .game-grid a img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 18px;
+  transition: transform 0.3s ease;
 }
+
+/* Game title text */
+.related-games .game-grid a span {
+  display: block;
+  padding: 10px 6px 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f5f5f5;
+  text-align: center;
+  text-transform: capitalize;
+  transition: color 0.3s ease;
+}
+
+/* 🔹 Hover Effects */
+.related-games .game-grid a:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+}
+
+.related-games .game-grid a:hover img {
+  transform: scale(1.07);
+}
+
+.related-games .game-grid a:hover span {
+  color: var(--primary, #00ffcc);
+}
+
+/* 🔹 Mobile Responsive */
+@media (max-width: 768px) {
+  .related-games h2 {
+    font-size: 1.1rem;
+  }
+
+  .related-games .game-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
+  }
+
+  .related-games .game-grid a span {
+    font-size: 0.85rem;
+  }
+}
+
 </style>
 </head>
 
@@ -257,22 +330,24 @@ main {
     <ul class="features"></ul>
   </div>
 
+  <div id="banner2"></div>
+
   <!-- Related Games -->
   <div class="related-games" data-animate>
     <h2>More Games by Blink</h2>
     <div class="game-grid"></div>
   </div>
 
-  <div id="banner2"></div>
+  <div id="banner3"></div>
 </main>
 
 <div id="footer-container"></div>
 
 <!-- Scripts -->
-<script src="https://blinkgames007.github.io/layout.js"></script>
-<script src="https://blinkgames007.github.io/config.js"></script>
+<script src="../../layout.js"></script>
+<script src="../../config.js"></script>
 <script src="game-setup.js"></script>
-<script src="https://blinkgames007.github.io/GoogleAdsManager.js"></script>
+<script src="../../GoogleAdsManager.js"></script>
 
 <script>
 // --- Lightbox ---
@@ -299,15 +374,13 @@ elements.forEach(el => observer.observe(el));
 <!-- PWA placeholders -->
 <link rel="manifest" href="manifest.json">
 <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
-  }
   // --- Ads ---
     window.onload = () => {
       const ads = new GoogleAdsManager("ca-pub-9301267932926503");
       ads.loadAutoAds();
       ads.loadAdUnit("banner1", "3089669868", "auto");
       ads.loadAdUnit("banner2", "3089669868", "auto");
+      ads.loadAdUnit("banner3", "3089669868", "auto");
     };
 </script>
 </body>

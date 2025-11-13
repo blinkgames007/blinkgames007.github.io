@@ -28,25 +28,21 @@ const GAME_DATA = {
     "sl/snap3.jpg",
     "sl/snap4.jpg",
     "sl/snap5.png"
-  ],
-
-  relatedGames: [
-    { name: "Spike Dash", image: "sl/game1.jpg", link: "game1.html" },
-    { name: "Pixel Runner", image: "sl/game2.jpg", link: "game2.html" },
-    { name: "Block Escape", image: "sl/game3.jpg", link: "game3.html" }
   ]
 };
 
 // ============================
 // 🧩 DYNAMIC PAGE SETUP
 // ============================
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   // Game header
   document.querySelector(".game-text h1").textContent = GAME_DATA.title;
   document.querySelector(".developer").textContent = GAME_DATA.developer;
-  document.querySelector(
-    ".stats"
-  ).innerHTML = `<div>${GAME_DATA.rating}</div><div>${GAME_DATA.ageRating}</div><div>${GAME_DATA.plays}</div>`;
+  document.querySelector(".stats").innerHTML = `
+    <div>${GAME_DATA.rating}</div>
+    <div>${GAME_DATA.ageRating}</div>
+    <div>${GAME_DATA.plays}</div>
+  `;
 
   // Banner & Icon
   document.querySelector(".banner-full img").src = GAME_DATA.bannerImage;
@@ -59,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Description
   document.querySelector(".description p").textContent = GAME_DATA.description;
 
-  // Features list
+  // Features
   const featureList = document.querySelector(".features");
   featureList.innerHTML = "";
   GAME_DATA.features.forEach(f => {
@@ -79,16 +75,33 @@ document.addEventListener("DOMContentLoaded", () => {
     screenshotContainer.appendChild(img);
   });
 
-  // Related games
-  const relatedContainer = document.querySelector(".related-games .game-grid");
-  relatedContainer.innerHTML = "";
-  GAME_DATA.relatedGames.forEach(game => {
-    const a = document.createElement("a");
-    a.href = game.link;
-    a.innerHTML = `
-      <img src="${game.image}" alt="${game.name}" loading="lazy">
-      <span>${game.name}</span>
-    `;
-    relatedContainer.appendChild(a);
-  });
+  // ================= DYNAMIC MORE GAMES =================
+  try {
+    const res = await fetch(window.RELATED_GAMES_API);
+    const allGames = await res.json();
+
+    // Exclude current game
+    const currentPage = window.location.pathname.replace(/^.*\/G\//, "G/");
+    const filteredGames = allGames.filter(g => g.page !== currentPage);
+
+    // Pick random games
+    const randomGames = filteredGames
+      .sort(() => 0.5 - Math.random())
+      .slice(0, window.MORE_GAMES_COUNT);
+
+    const relatedContainer = document.querySelector(".related-games .game-grid");
+    relatedContainer.innerHTML = "";
+
+    randomGames.forEach(game => {
+      const a = document.createElement("a");
+      a.href = "../../" + game.page; // prepend ../../
+      a.innerHTML = `
+        <img src="../../${game.thumbnail}" alt="${game.title}" loading="lazy">
+        <span>${game.title}</span>
+      `;
+      relatedContainer.appendChild(a);
+    });
+  } catch (err) {
+    console.error("Failed to fetch related games:", err);
+  }
 });

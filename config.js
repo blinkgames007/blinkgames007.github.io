@@ -1,6 +1,10 @@
 // ✅ One variable to rule all ads
 window.ADS_ENABLED = true; // set false to disable ads globally
 
+// Related games config
+window.RELATED_GAMES_API = "https://api.npoint.io/e24cdd5120b7643095ac";
+window.MORE_GAMES_COUNT = 12; // change this to any number of random games
+
 // ================= CONFIG / API CALLS =================
 const apiUrl = "https://api.npoint.io/15812aaae7d99303c10f";
 let companyInfo = {};
