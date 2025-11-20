@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Cticket TV & Score - Ball By Ball</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      background: #0f0f0f;
+      font-family: 'Nunito', sans-serif;
+      color: #fff;
+    }
+
+    .page-container {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .construction-box {
+      background: #111;
+      padding: 50px 25px;
+      border-radius: 14px;
+      border: 2px solid #00eaff;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    }
+
+    .construction-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #00ffe0;
+      margin-bottom: 15px;
+    }
+
+    .construction-text {
+      font-size: 18px;
+      color: #ddd;
+    }
+
+    @media(max-width: 600px){
+      .construction-box {
+        padding: 35px 20px;
+      }
+      .construction-title {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Load Header -->
+  <div id="header-placeholder"></div>
+
+  <!-- Page Content -->
+  <div class="page-container">
+    <div class="construction-box">
+      <div class="construction-title">🚧 Website Under Construction</div>
+      <div class="construction-text">
+        We’re working hard to bring you the best gaming experience.<br>
+        Please check back soon!
+      </div>
+    </div>
+  </div>
+
+  <!-- Load Footer -->
+  <div id="footer-placeholder"></div>
+
+  <script>
+    // Import header + footer
+    async function includeHTML(file, elementID) {
+      const content = await fetch(file).then(res => res.text());
+      document.getElementById(elementID).innerHTML = content;
+    }
+
+    includeHTML("header.html", "header-placeholder");
+    includeHTML("footer.html", "footer-placeholder");
+  </script>
+
+</body>
+</html>

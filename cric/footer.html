@@ -1,0 +1,54 @@
+<header class="header">
+  <div class="header-left">
+    <img src="logo.png" class="logo" alt="Logo" />
+    <div class="header-title">
+      <span class="main-title">Blink</span> <span class="sub-title">Games</span>
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    width: 100%;
+    padding: 18px 25px;
+    background: #0f0f0f;
+    display: flex;
+    align-items: center;
+    border-bottom: 3px solid #00f7e9;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo {
+    height: 45px;
+  }
+
+  .header-title {
+    display: flex;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  .main-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #00ffd5;
+  }
+
+  .sub-title {
+    font-size: 28px;
+    margin-left: 8px;
+    color: #ffffff;
+    border-bottom: 2px dotted #00ffd5;
+  }
+
+  @media(max-width: 600px){
+    .main-title { font-size: 24px; }
+    .sub-title { font-size: 22px; }
+    .logo { height: 35px; }
+  }
+</style>

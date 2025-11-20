@@ -1,0 +1,52 @@
+<header class="app-header">
+  <div class="header-left">
+    <img src="logo.png" alt="Logo" class="logo">
+    <span class="title">Blink <span class="title-thin">Games</span></span>
+  </div>
+</header>
+
+<style>
+  .app-header {
+    width: 100%;
+    background: #111;
+    padding: 15px 25px;
+    border-bottom: 3px solid #00eaff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo {
+    height: 40px;
+    width: auto;
+  }
+
+  .title {
+    color: #00ffc8;
+    font-size: 28px;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  .title-thin {
+    font-weight: 400;
+    color: #39ffea;
+    margin-left: 8px;
+    border-bottom: 2px dotted #39ffea;
+  }
+
+  @media(max-width: 600px) {
+    .title {
+      font-size: 22px;
+    }
+    .logo {
+      height: 32px;
+    }
+  }
+</style>
