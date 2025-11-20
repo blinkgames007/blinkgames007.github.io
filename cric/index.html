@@ -1,86 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Live Cticket TV & Score - Ball By Ball</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Cricket TV & Score - Home</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
 
   <style>
     body {
       margin: 0;
-      background: #0f0f0f;
-      font-family: 'Nunito', sans-serif;
-      color: #fff;
+      background: #f1fff3;
+      font-family: 'Poppins', sans-serif;
     }
 
-    .page-container {
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: auto;
+    .hero {
       text-align: center;
+      padding: 70px 20px;
+      background: url('https://img.freepik.com/free-photo/top-view-cricket-bat-ball-grass_123827-23161.jpg') center/cover no-repeat;
+      color: white;
+      position: relative;
     }
 
-    .construction-box {
-      background: #111;
-      padding: 50px 25px;
-      border-radius: 14px;
-      border: 2px solid #00eaff;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
     }
 
-    .construction-title {
-      font-size: 32px;
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-title {
+      font-size: 38px;
       font-weight: 700;
-      color: #00ffe0;
-      margin-bottom: 15px;
     }
 
-    .construction-text {
-      font-size: 18px;
-      color: #ddd;
+    .hero-text {
+      margin-top: 10px;
+      font-size: 20px;
+      opacity: 0.9;
     }
 
-    @media(max-width: 600px){
-      .construction-box {
-        padding: 35px 20px;
-      }
-      .construction-title {
-        font-size: 26px;
-      }
+    .section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      text-align: center;
+      color: #0e5322;
+    }
+
+    .box {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 12px;
+      border: 2px solid #7ee39f;
+      box-shadow: 0px 4px 18px rgba(0,0,0,0.1);
     }
   </style>
+
 </head>
 <body>
 
-  <!-- Load Header -->
-  <div id="header-placeholder"></div>
+  <div id="header"></div>
 
-  <!-- Page Content -->
-  <div class="page-container">
-    <div class="construction-box">
-      <div class="construction-title">🚧 Website Under Construction</div>
-      <div class="construction-text">
-        We’re working hard to bring you the best gaming experience.<br>
-        Please check back soon!
-      </div>
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Live Cricket TV & Score</h1>
+      <p class="hero-text">Watch Live Matches • Get Instant Scores • Stay Updated Anytime</p>
+    </div>
+  </section>
+
+  <div class="section">
+    <div class="box">
+      <h2>Website Under Construction</h2>
+      <p>We are preparing a premium cricket experience for you. Check back soon!</p>
     </div>
   </div>
 
-  <!-- Load Footer -->
-  <div id="footer-placeholder"></div>
+  <div id="footer"></div>
 
   <script>
-    // Import header + footer
-    async function includeHTML(file, elementID) {
-      const content = await fetch(file).then(res => res.text());
-      document.getElementById(elementID).innerHTML = content;
+    async function load(file, element) {
+      const html = await fetch(file).then(res => res.text());
+      document.getElementById(element).innerHTML = html;
     }
 
-    includeHTML("header.html", "header-placeholder");
-    includeHTML("footer.html", "footer-placeholder");
+    load("header.html", "header");
+    load("footer.html", "footer");
   </script>
 
 </body>

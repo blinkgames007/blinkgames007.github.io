@@ -1,54 +1,73 @@
-<header class="header">
-  <div class="header-left">
-    <img src="logo.png" class="logo" alt="Logo" />
-    <div class="header-title">
-      <span class="main-title">Blink</span> <span class="sub-title">Games</span>
+<footer class="lc-footer">
+
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+      <img src="logo.png" class="footer-logo">
+      <h2 class="footer-title">Live Cricket TV & Score</h2>
     </div>
+
+    <a href="privacypolicy.html" class="footer-link">Privacy Policy</a>
   </div>
-</header>
+
+  <p class="footer-copy">© 2025 Live Cricket TV & Score. All Rights Reserved.</p>
+</footer>
 
 <style>
-  .header {
-    width: 100%;
-    padding: 18px 25px;
-    background: #0f0f0f;
-    display: flex;
-    align-items: center;
-    border-bottom: 3px solid #00f7e9;
+  .lc-footer {
+    background: linear-gradient(135deg, #0e5322, #0a7f29);
+    padding: 30px 20px;
+    color: #eaffea;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 50px;
   }
 
-  .header-left {
+  .footer-inner {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-brand {
     display: flex;
     align-items: center;
     gap: 12px;
   }
 
-  .logo {
-    height: 45px;
+  .footer-logo {
+    height: 40px;
   }
 
-  .header-title {
-    display: flex;
-    align-items: center;
-    font-family: 'Nunito', sans-serif;
+  .footer-title {
+    font-size: 22px;
+    font-weight: 600;
   }
 
-  .main-title {
-    font-size: 30px;
-    font-weight: 700;
-    color: #00ffd5;
+  .footer-link {
+    color: #dfffda;
+    text-decoration: none;
+    font-size: 18px;
   }
 
-  .sub-title {
-    font-size: 28px;
-    margin-left: 8px;
-    color: #ffffff;
-    border-bottom: 2px dotted #00ffd5;
+  .footer-link:hover {
+    text-decoration: underline;
+  }
+
+  .footer-copy {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.9;
   }
 
   @media(max-width: 600px){
-    .main-title { font-size: 24px; }
-    .sub-title { font-size: 22px; }
-    .logo { height: 35px; }
+    .footer-inner {
+      flex-direction: column;
+      text-align: center;
+    }
   }
 </style>
