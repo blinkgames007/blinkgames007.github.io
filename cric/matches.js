@@ -18,7 +18,7 @@ async function loadMatches() {
             const home = match.HomeTeam;
             const away = match.AwayTeam;
 
-            /* Innings logic */
+            /* Build innings logic */
             const inningsByTeam = {};
             if (match.Innings) {
                 match.Innings.forEach(inn => {
@@ -35,37 +35,45 @@ async function loadMatches() {
                 return inningsByTeam[teamId].join(" & ");
             }
 
-            /* FULL EXACT LAYOUT CARD */
             const card = document.createElement("div");
             card.className = "match-card";
 
             card.innerHTML = `
-                <div class="card-header">
+                <!-- TOP BAR -->
+                <div class="card-top">
                     <div class="series-name">${match.Competition?.Name ?? ""}</div>
-                    <img src="arrow-right.png" class="arrow-icon">
+                    <img src="arrow-right.png" class="arrow-icon" />
                 </div>
 
+                <!-- VENUE ROW -->
                 <div class="venue-wrapper">
                     <div class="venue-pill">${match.GameType ?? ""}</div>
                     <div class="venue-pill">${match.Venue?.Name ?? ""}</div>
                 </div>
 
+                <!-- TEAM 1 -->
                 <div class="team-row">
                     <div class="team-left">
                         <img class="flag" src="${home?.LogoUrl ?? ""}">
                         <span class="team-name">${home?.ShortName ?? ""}</span>
                     </div>
-                    <span class="team-score">${teamScore(home?.Id)}</span>
+                    <div class="team-right">
+                        <span class="team-score">${teamScore(home?.Id)}</span>
+                    </div>
                 </div>
 
+                <!-- TEAM 2 -->
                 <div class="team-row">
                     <div class="team-left">
                         <img class="flag" src="${away?.LogoUrl ?? ""}">
                         <span class="team-name">${away?.ShortName ?? ""}</span>
                     </div>
-                    <span class="team-score">${teamScore(away?.Id)}</span>
+                    <div class="team-right">
+                        <span class="team-score">${teamScore(away?.Id)}</span>
+                    </div>
                 </div>
 
+                <!-- RESULT -->
                 <div class="match-result">${match.ResultText ?? ""}</div>
             `;
 

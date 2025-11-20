@@ -1,28 +1,27 @@
 body {
     font-family: Arial, sans-serif;
     background: #f1f1f1;
-    padding: 10px;
+    padding: 12px;
     margin: 0;
 }
 
 .page-title {
     text-align: center;
-    font-size: 22px;
-    margin-bottom: 15px;
+    font-size: 20px;
+    margin-bottom: 12px;
 }
 
-/* === CardView EXACT === */
+/* === CARDVIEW EXACT === */
 .match-card {
     background: #ffffff;
     border-radius: 15px;
     margin: 5px 0;
-    padding-bottom: 10px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.12);
     overflow: hidden;
 }
 
-/* === FIRST ROW (Series + Arrow) === */
-.card-header {
+/* === TOP ROW (series + arrow) === */
+.card-top {
     background: #eaf5f1;
     height: 45px;
     display: flex;
@@ -33,8 +32,8 @@ body {
 .series-name {
     flex: 1;
     text-align: center;
-    color: #000;
     font-size: 15px;
+    color: #000;
 }
 
 .arrow-icon {
@@ -42,36 +41,46 @@ body {
     height: 35px;
 }
 
-/* === VENUE ROW (Two Green Labels) === */
+/* === VENUE TYPE + VENUE ROW === */
 .venue-wrapper {
-    margin: 7px 7px;
     display: flex;
     justify-content: space-between;
+    margin: 7px 7px 0 7px;
 }
 
 .venue-pill {
-    background: #28a745;
-    border-radius: 30px;
-    padding: 5px 10px;
-    color: white;
+    background: transparent;
+    border: 2px solid #21b388;
+    color: #21b388;
+    padding: 3px 10px;
+    border-radius: 20px;
     font-size: 12px;
-    font-weight: bold;
     height: 30px;
     display: flex;
     align-items: center;
+    font-weight: bold;
 }
 
-/* === TEAM ROWS === */
+/* === TEAM ROW === */
 .team-row {
     display: flex;
-    justify-content: space-between;
     padding: 5px 15px;
     align-items: center;
 }
 
-.team-left {
+.team-left, .team-right {
     display: flex;
     align-items: center;
+}
+
+/* weight=0.5 */
+.team-left {
+    width: 50%;
+}
+
+.team-right {
+    width: 50%;
+    justify-content: flex-end;
 }
 
 .flag {
@@ -81,18 +90,21 @@ body {
 
 .team-name {
     margin-left: 15px;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .team-score {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
 }
 
-/* === MATCH RESULT === */
+/* === RESULT === */
 .match-result {
     text-align: center;
-    color: red;
-    padding: 8px 0;
     font-size: 14px;
+    color: red;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
