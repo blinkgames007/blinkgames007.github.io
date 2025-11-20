@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Match Details</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="details-container" style="padding: 10px;"></div>
+
+<script>
+    // Get match data from URL query string
+    const params = new URLSearchParams(window.location.search);
+    const matchData = params.get("data");
+    const match = matchData ? JSON.parse(decodeURIComponent(matchData)) : null;
+
+    const container = document.getElementById("details-container");
+
+    if (match) {
+        const homeScores = match.Innings?.filter(i => i.BattingTeamId === match.HomeTeam?.Id).map(i => i.RunsScored + "-" + i.NumberOfWicketsFallen).join(" & ") ?? "";
+        const awayScores = match.Innings?.filter(i => i.BattingTeamId === match.AwayTeam?.Id).map(i => i.RunsScored + "-" + i.NumberOfWicketsFallen).join(" & ") ?? "";
+
+        container.innerHTML = `
+            <h2>${match.HomeTeam?.ShortName ?? ""} vs ${match.AwayTeam?.ShortName ?? ""}</h2>
+            <p><strong>Series:</strong> ${match.Competition?.Name ?? ""}</p>
+            <p><strong>Venue:</strong> ${match.Venue?.Name ?? ""}</p>
+            <p><strong>Game Type:</strong> ${match.GameType ?? ""}</p>
+            <p><strong>Result:</strong> ${match.ResultText ?? ""}</p>
+            <h3>Scores:</h3>
+            <p>${match.HomeTeam?.ShortName ?? ""}: ${homeScores}</p>
+            <p>${match.AwayTeam?.ShortName ?? ""}: ${awayScores}</p>
+        `;
+    } else {
+        container.innerHTML = "<p>No match data found.</p>";
+    }
+</script>
+</body>
+</html>

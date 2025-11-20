@@ -90,7 +90,7 @@
       box-shadow: 0px 4px 18px rgba(0,0,0,0.1);
     }
   </style>
-
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -103,15 +103,21 @@
     </div>
   </section>
 
-  <div class="section">
-    <div class="box">
-      <h2>Website Under Construction</h2>
-      <p>We are preparing a premium cricket experience for you. Check back soon!</p>
-    </div>
+  <!-- TAB BAR -->
+  <div class="tab-bar">
+    <div class="tab active" data-target="live">Live</div>
+    <div class="tab" data-target="upcoming">Upcoming</div>
+    <div class="tab" data-target="recent">Recent</div>
   </div>
+
+  <!-- SECTIONS -->
+  <div id="live" class="section active"></div>
+  <div id="upcoming" class="section"></div>
+  <div id="recent" class="section"></div>
 
   <div id="footer"></div>
 
+  <script src="matches.js"></script>
   <script>
     async function load(file, element) {
       const html = await fetch(file).then(res => res.text());
