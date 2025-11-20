@@ -1,0 +1,98 @@
+body {
+    font-family: Roboto, Arial, sans-serif;
+    background: #f1f1f1;
+    padding: 12px;
+    margin: 0;
+}
+
+/* CardView */
+.match-card {
+    background: #fafafb;
+    border-radius: 12px;
+    margin: 10px 0;
+    padding: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+}
+
+/* Title: Cricket T20 etc */
+.match-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+/* Vertical Layout */
+.match-body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Teams Section */
+.teams {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+/* Each team */
+.team {
+    flex: 1;
+    text-align: center;
+}
+
+.team img {
+    width: 48px;
+    height: 48px;
+    margin-top: 10px;
+}
+
+.team-name {
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+.vs-text {
+    font-size: 18px;
+    font-weight: bold;
+    width: 50px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Score text */
+.score-text {
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Bottom Row */
+.bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+}
+
+.live-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+}
+
+/* Watch Button */
+.watch-btn {
+    background: #ff7a00;
+    color: #fff;
+    padding: 8px 22px;
+    border-radius: 6px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.match-result {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #333;
+}
