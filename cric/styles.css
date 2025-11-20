@@ -1,98 +1,98 @@
 body {
-    font-family: Roboto, Arial, sans-serif;
+    font-family: Arial, sans-serif;
     background: #f1f1f1;
-    padding: 12px;
+    padding: 10px;
     margin: 0;
 }
 
-/* CardView */
+.page-title {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+/* === CardView EXACT === */
 .match-card {
-    background: #fafafb;
-    border-radius: 12px;
-    margin: 10px 0;
-    padding: 12px;
+    background: #ffffff;
+    border-radius: 15px;
+    margin: 5px 0;
+    padding-bottom: 10px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+    overflow: hidden;
 }
 
-/* Title: Cricket T20 etc */
-.match-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 6px;
-}
-
-/* Vertical Layout */
-.match-body {
+/* === FIRST ROW (Series + Arrow) === */
+.card-header {
+    background: #eaf5f1;
+    height: 45px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    padding: 0 12px;
 }
 
-/* Teams Section */
-.teams {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 5px;
-}
-
-/* Each team */
-.team {
+.series-name {
     flex: 1;
     text-align: center;
+    color: #000;
+    font-size: 15px;
 }
 
-.team img {
-    width: 48px;
-    height: 48px;
-    margin-top: 10px;
+.arrow-icon {
+    width: 35px;
+    height: 35px;
+}
+
+/* === VENUE ROW (Two Green Labels) === */
+.venue-wrapper {
+    margin: 7px 7px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.venue-pill {
+    background: #28a745;
+    border-radius: 30px;
+    padding: 5px 10px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+/* === TEAM ROWS === */
+.team-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 15px;
+    align-items: center;
+}
+
+.team-left {
+    display: flex;
+    align-items: center;
+}
+
+.flag {
+    width: 20px;
+    height: 20px;
 }
 
 .team-name {
-    margin-top: 5px;
-    font-size: 15px;
-}
-
-.vs-text {
-    font-size: 18px;
-    font-weight: bold;
-    width: 50px;
-    text-align: center;
-    margin-top: 20px;
-}
-
-/* Score text */
-.score-text {
-    margin-top: 5px;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-/* Bottom Row */
-.bottom-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 18px;
-}
-
-.live-text {
-    font-size: 18px;
-    font-weight: bold;
-    color: red;
-}
-
-/* Watch Button */
-.watch-btn {
-    background: #ff7a00;
-    color: #fff;
-    padding: 8px 22px;
-    border-radius: 6px;
-    font-size: 15px;
-    border: none;
-    cursor: pointer;
-}
-
-.match-result {
-    margin-top: 6px;
+    margin-left: 15px;
     font-size: 14px;
-    color: #333;
+}
+
+.team-score {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* === MATCH RESULT === */
+.match-result {
+    text-align: center;
+    color: red;
+    padding: 8px 0;
+    font-size: 14px;
 }
