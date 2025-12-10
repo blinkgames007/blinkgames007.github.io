@@ -4,7 +4,7 @@
 
 const GAME_DATA = {
   title: "Level Devil",
-  developer: "Blink Games",
+  developer: "Zippy Games",
   rating: "⭐ 4.2",
   ageRating: "Rated for 3+",
   plays: "100K+ Plays",
