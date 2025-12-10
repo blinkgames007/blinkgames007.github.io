@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   `;
 
   // Banner & Icon
-  document.querySelector(".banner-full img").src = GAME_DATA.bannerImage;
+  // document.querySelector(".banner-full img").src = GAME_DATA.bannerImage;
   document.querySelector(".game-icon img").src = GAME_DATA.icon;
 
   // Play buttons
